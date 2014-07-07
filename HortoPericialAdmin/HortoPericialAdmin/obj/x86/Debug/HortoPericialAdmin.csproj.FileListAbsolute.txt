@@ -1,0 +1,22 @@
+C:\Users\a15390\AppData\Local\Temporary Projects\HortoPericialAdmin\bin\Debug\HortoPericialAdmin.exe
+C:\Users\a15390\AppData\Local\Temporary Projects\HortoPericialAdmin\bin\Debug\HortoPericialAdmin.pdb
+C:\Users\a15390\AppData\Local\Temporary Projects\HortoPericialAdmin\obj\x86\Debug\MainWindow.baml
+C:\Users\a15390\AppData\Local\Temporary Projects\HortoPericialAdmin\obj\x86\Debug\MainWindow.g.cs
+C:\Users\a15390\AppData\Local\Temporary Projects\HortoPericialAdmin\obj\x86\Debug\App.g.cs
+C:\Users\a15390\AppData\Local\Temporary Projects\HortoPericialAdmin\obj\x86\Debug\HortoPericialAdmin_MarkupCompile.cache
+C:\Users\a15390\AppData\Local\Temporary Projects\HortoPericialAdmin\obj\x86\Debug\HortoPericialAdmin.g.resources
+C:\Users\a15390\AppData\Local\Temporary Projects\HortoPericialAdmin\obj\x86\Debug\HortoPericialAdmin.Properties.Resources.resources
+C:\Users\a15390\AppData\Local\Temporary Projects\HortoPericialAdmin\obj\x86\Debug\HortoPericialAdmin.csproj.GenerateResource.Cache
+C:\Users\a15390\AppData\Local\Temporary Projects\HortoPericialAdmin\obj\x86\Debug\HortoPericialAdmin.exe
+C:\Users\a15390\AppData\Local\Temporary Projects\HortoPericialAdmin\obj\x86\Debug\HortoPericialAdmin.pdb
+C:\Dev\Hortopericial\horto-c-sharp\HortoPericialAdmin\HortoPericialAdmin\obj\x86\Debug\HortoPericialAdmin.exe
+C:\Dev\Hortopericial\horto-c-sharp\HortoPericialAdmin\HortoPericialAdmin\obj\x86\Debug\HortoPericialAdmin.pdb
+C:\Dev\Hortopericial\horto-c-sharp\HortoPericialAdmin\HortoPericialAdmin\bin\Debug\HortoPericialAdmin.exe
+C:\Dev\Hortopericial\horto-c-sharp\HortoPericialAdmin\HortoPericialAdmin\bin\Debug\HortoPericialAdmin.pdb
+C:\Dev\Hortopericial\horto-c-sharp\HortoPericialAdmin\HortoPericialAdmin\obj\x86\Debug\MainWindow.baml
+C:\Dev\Hortopericial\horto-c-sharp\HortoPericialAdmin\HortoPericialAdmin\obj\x86\Debug\MainWindow.g.cs
+C:\Dev\Hortopericial\horto-c-sharp\HortoPericialAdmin\HortoPericialAdmin\obj\x86\Debug\App.g.cs
+C:\Dev\Hortopericial\horto-c-sharp\HortoPericialAdmin\HortoPericialAdmin\obj\x86\Debug\HortoPericialAdmin_MarkupCompile.cache
+C:\Dev\Hortopericial\horto-c-sharp\HortoPericialAdmin\HortoPericialAdmin\obj\x86\Debug\HortoPericialAdmin.g.resources
+C:\Dev\Hortopericial\horto-c-sharp\HortoPericialAdmin\HortoPericialAdmin\obj\x86\Debug\HortoPericialAdmin.Properties.Resources.resources
+C:\Dev\Hortopericial\horto-c-sharp\HortoPericialAdmin\HortoPericialAdmin\obj\x86\Debug\HortoPericialAdmin.csproj.GenerateResource.Cache
