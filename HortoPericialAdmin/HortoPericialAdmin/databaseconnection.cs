@@ -10,22 +10,24 @@ namespace HortoPericialAdmin
     {
         public static MySqlConnection db = null;
         private string server;
-        private string port;
+        //private string port;
         private string database;
         private string uid;
-        private string password;
+        //private string password;
 
         public void dbConnection()
         {
 
-            server = "sql3.freesqldatabase.com";
-            port = "3306";
-            database = "sql346213";
-            uid = "sql346213";
-            password = "qQ1*wW9*";
+            server = "localhost";
+            //port = "3307";
+            database = "hortopericial";
+            uid = "root";
+            //password = "root";
             string connectionString;
-            connectionString = "Server=" + server + ";" + "Port=" + port + ";" + "Database=" +
-            database + ";" + "Uid=" + uid + ";" + "Pwd=" + password + ";";
+            //connectionString = "Server=" + server + ";" + "Port=" + port + ";" + "Database=" +
+            //database + ";" + "Uid=" + uid + ";" + "Pwd=" + password + ";";
+            connectionString = "Server=" + server + ";" + "Database=" +
+            database + ";" + "Uid=" + uid + ";";
             
             try
             {
