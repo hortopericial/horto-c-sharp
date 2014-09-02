@@ -66,7 +66,16 @@ namespace HortoPericialAdmin
                 tabItem2.Visibility = Visibility.Hidden;
                 tabItem3.Visibility = Visibility.Hidden;
                 button2.Visibility = Visibility.Hidden;
-                button3.Visibility = Visibility.Visible;
+                button3.Visibility = Visibility.Visible; 
+                int temp = textBox3.Text.Length;
+                if (temp == 0)
+                {
+                    button4.IsHitTestVisible = false;
+                }
+                else
+                {
+                    button4.IsHitTestVisible = true;
+                }
             }
 
             else
@@ -88,12 +97,13 @@ namespace HortoPericialAdmin
             button5.Visibility = Visibility.Hidden;
             textBox1.Clear();
             passwordBox1.Clear();
+            comboBox1.Items.Clear();
             databaseconnection.db.Close();
 
         }
 
 
-        // Localizações
+        // Inserir distrito
         private void button1_Click_1(object sender, RoutedEventArgs e)
         {
             tabControl1.SelectedIndex = 2;
@@ -103,33 +113,6 @@ namespace HortoPericialAdmin
             tabItem3.Visibility = Visibility.Hidden;
             button2.Visibility = Visibility.Hidden;
             button5.Visibility = Visibility.Visible;
-
-            databaseconnection NewConnection = new databaseconnection();
-            NewConnection.dbConnection();
-
-            MySqlCommand querysql = new MySqlCommand("select * from distrito", databaseconnection.db);
-
-            MySqlDataReader dataread = querysql.ExecuteReader();
-            int count = 0;
-            while (dataread.Read())
-            {
-                count = count + 1;
-                //comboBox1.Items.Add(dataread["nome_dist"].ToString());
-            }
-
-            if (count == 0)
-            {
-                //comboBox1.Visibility = Visibility.Hidden;
-            }
-
-            else
-            {
-                //comboBox1.Visibility = Visibility.Visible;
-
-
-            }
-
-            databaseconnection.db.Close();
 
         }
 
@@ -148,13 +131,16 @@ namespace HortoPericialAdmin
 
         //    }
         }
+
         // Botão voltar
         private void button5_Click(object sender, RoutedEventArgs e)
         {
             tabControl1.SelectedIndex = 1;
             button5.Visibility = Visibility.Hidden;
+            comboBox1.Items.Clear();
         }
 
+        // Verifica se o botão de insirir do distrio pode estar activo ou nao
         private void textBox3_TextChanged(object sender, TextChangedEventArgs e)
         {
             int temp = textBox3.Text.Length;
@@ -166,6 +152,67 @@ namespace HortoPericialAdmin
             {
                 button4.IsHitTestVisible = true;
             }
+        }
+
+        // inserir concelho
+        private void button6_Click(object sender, RoutedEventArgs e)
+        {
+            tabControl1.SelectedIndex = 3;
+            textBox3.Clear();
+            tabItem1.Visibility = Visibility.Hidden;
+            tabItem2.Visibility = Visibility.Hidden;
+            tabItem3.Visibility = Visibility.Hidden;
+            tabItem4.Visibility = Visibility.Hidden;
+            button2.Visibility = Visibility.Hidden;
+            button5.Visibility = Visibility.Visible;
+
+            databaseconnection NewConnection = new databaseconnection();
+            NewConnection.dbConnection();
+
+            MySqlCommand querysql = new MySqlCommand("select * from distrito", databaseconnection.db);
+
+            MySqlDataReader dataread = querysql.ExecuteReader();
+            int count = 0;
+            while (dataread.Read())
+            {
+                count = count + 1;
+                comboBox1.Items.Add(dataread["id_distrito"].ToString()+" "+"-"+" "+dataread["nome_dist"].ToString());
+            }
+
+            if (count == 0)
+            {
+                comboBox1.Visibility = Visibility.Hidden;
+            }
+
+            else
+            {
+                comboBox1.Visibility = Visibility.Visible;
+
+            }
+
+            databaseconnection.db.Close();
+        }
+
+        private void button7_Click(object sender, RoutedEventArgs e)
+        {
+
+            string selectedItem = comboBox1.Items[comboBox1.SelectedIndex].ToString();
+        
+            string[] getid_dist = selectedItem.Split(' ');
+
+            databaseconnection NewConnection = new databaseconnection();
+            NewConnection.dbConnection();
+
+            // if ()
+            // {
+            MySqlCommand querysql = new MySqlCommand("INSERT INTO concelho (iddistrito_fk, nome_conc) Values ('"+ getid_dist[0] +"','" + this.textBox2.Text + "')", databaseconnection.db);
+            querysql.ExecuteNonQuery();
+            databaseconnection.db.Close();
+            MessageBox.Show("Sucesso!!");
+
+            //    }
+                  
+       
         }
     }
 }
