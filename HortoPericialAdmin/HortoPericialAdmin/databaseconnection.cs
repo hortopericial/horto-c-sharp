@@ -10,7 +10,7 @@ namespace HortoPericialAdmin
     {
         public static MySqlConnection db = null;
         private string server;
-        //private string port;
+        private string port;
         private string database;
         private string uid;
         //private string password;
@@ -18,15 +18,17 @@ namespace HortoPericialAdmin
         public void dbConnection()
         {
 
-            server = "localhost";
+            //server = "localhost";
+            server = "ltictrab.ddns.net";
+            port = "3306";
             //port = "3307";
             database = "hortopericial";
-            uid = "root";
+            uid = "user";
             //password = "root";
             string connectionString;
             //connectionString = "Server=" + server + ";" + "Port=" + port + ";" + "Database=" +
             //database + ";" + "Uid=" + uid + ";" + "Pwd=" + password + ";";
-            connectionString = "Server=" + server + ";" + "Database=" +
+            connectionString = "Server=" + server + ";" + "Port=" + port + ";" + "Database=" +
             database + ";" + "Uid=" + uid + ";";
             
             try

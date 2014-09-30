@@ -58,7 +58,7 @@ namespace HortoPericialAdmin
 
             MySqlCommand querysql = new MySqlCommand("select nome_util, password from utilizadores where nome_util='" + this.textBox1.Text + "' and password='" + this.passwordBox1.Password + "'", databaseconnection.db);
 
-            MySqlDataReader dataread = querysql.ExecuteReader();
+           MySqlDataReader dataread = querysql.ExecuteReader();
             int count = 0;
             while (dataread.Read())
             {
