@@ -18,13 +18,19 @@
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0*" />
-                        <ColumnDefinition Width="760*" />
+                        <ColumnDefinition Width="122*" />
+                        <ColumnDefinition Width="680*" />
                     </Grid.ColumnDefinitions>
-                    <Button Content="Inserir Distrito" Height="23" HorizontalAlignment="Left" Margin="6,46,0,0" Name="button1" VerticalAlignment="Top" Width="107" Click="button1_Click_1" Grid.Column="1" HorizontalContentAlignment="Center" />
-                    <Label Content="Menu" Height="28" HorizontalAlignment="Left" Margin="359,6,0,0" Name="label4" VerticalAlignment="Top" Grid.ColumnSpan="2" />
-                    <Button Content="Inserir Concelho" Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="6,89,0,0" Name="button6" VerticalAlignment="Top" Width="107" Click="button6_Click" HorizontalContentAlignment="Center" />
-                    <Button Content="Inserir QuestionSet" Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="161,46,0,0" Name="button8" VerticalAlignment="Top" Width="137" Click="button8_Click" />
-                    <Button Content="Inserir Pré-Diagnóstico" Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="161,89,0,0" Name="button9" VerticalAlignment="Top" Width="137" Click="button9_Click" />
+                    <Button Content="Inserir Distrito" Height="23" HorizontalAlignment="Left" Margin="25,67,0,0" Name="button1" VerticalAlignment="Top" Width="137" Click="button1_Click_1" Grid.Column="2" HorizontalContentAlignment="Center" />
+                    <Label Content="Menu" Height="28" HorizontalAlignment="Left" Margin="237,6,0,0" Name="label4" VerticalAlignment="Top" Grid.Column="2" />
+                    <Button Content="Inserir Concelho" Grid.Column="2" Height="23" HorizontalAlignment="Left" Margin="25,112,0,0" Name="button6" VerticalAlignment="Top" Width="137" Click="button6_Click" HorizontalContentAlignment="Center" />
+                    <Button Content="Inserir QuestionSet" Grid.Column="2" Height="23" HorizontalAlignment="Left" Margin="25,157,0,0" Name="button8" VerticalAlignment="Top" Width="137" Click="button8_Click" />
+                    <Button Content="Inserir Pré-Diagnóstico" Grid.Column="2" Height="23" HorizontalAlignment="Left" Margin="199,67,0,0" Name="button9" VerticalAlignment="Top" Width="137" Click="button9_Click" />
+                    <Button Content="Inserir Deficiências" Grid.Column="2" Height="23" HorizontalAlignment="Right" Margin="0,67,180,0" Name="button13" VerticalAlignment="Top" Width="131" Click="button13_Click" />
+                    <Button Content="Inserir Questionário" Grid.Column="2" Height="23" HorizontalAlignment="Left" Margin="199,112,0,0" Name="button17" VerticalAlignment="Top" Width="137" Click="button17_Click" />
+                    <Button Content="Inserir Sintomas" Grid.Column="2" Height="23" HorizontalAlignment="Left" Margin="199,157,0,0" Name="button18" VerticalAlignment="Top" Width="137" Click="button18_Click" />
+                    <Button Content="Inserir Deficiencias" Grid.Column="2" Height="23" HorizontalAlignment="Left" Margin="369,112,0,0" Name="button19" VerticalAlignment="Top" Width="131" Click="button19_Click" />
+                    <Button Content="Especies e Dificiencias" Grid.Column="2" Height="23" HorizontalAlignment="Left" Margin="369,157,0,0" Name="button20" VerticalAlignment="Top" Width="131" Click="button20_Click" />
                 </Grid>
             </TabItem>
             <TabItem Header="Distrito" Name="tabItem3">
@@ -66,8 +72,8 @@
                     <RadioButton Content="Sim" Height="16" HorizontalAlignment="Left" Margin="11,130,0,0" Name="radioButton2" VerticalAlignment="Top" />
                     <Label Content="Selecione em que caso não avança para diagnóstico e escreva a resposta a apresentar:" Height="28" HorizontalAlignment="Left" Margin="7,0,0,143" Name="label11" VerticalAlignment="Bottom" />
                     <Label Content="Selecione a pergunta anterior:" Height="28" HorizontalAlignment="Left" Margin="6,182,0,0" Name="label10" VerticalAlignment="Top" />
-                    <Button Content="Button" Height="23" HorizontalAlignment="Left" Margin="326,238,0,0" Name="button11" VerticalAlignment="Top" Width="75" />
-                    <Button Content="Button" Height="23" HorizontalAlignment="Left" Margin="440,238,0,0" Name="button12" VerticalAlignment="Top" Width="75" />
+                    <Button Content="Inserir e Seguinte" Height="23" HorizontalAlignment="Left" Margin="463,238,0,0" Name="button11" VerticalAlignment="Top" Width="129" Click="button11_Click" />
+                    <Button Content="Terminar" Height="23" HorizontalAlignment="Left" Margin="642,238,0,0" Name="button12" VerticalAlignment="Top" Width="75" />
                 </Grid>
             </TabItem>
             <TabItem Header="Questionário" Name="tabItem7">
@@ -83,6 +89,8 @@
                     <Label Content="É a primeira pergunta?" Height="28" HorizontalAlignment="Left" Margin="24,170,0,0" Name="label14" VerticalAlignment="Top" />
                     <RadioButton Content="Sim" Height="16" HorizontalAlignment="Left" Margin="162,175,0,0" Name="radioButton3" VerticalAlignment="Top" />
                     <RadioButton Content="Não" Height="16" HorizontalAlignment="Left" Margin="269,175,0,0" Name="radioButton4" VerticalAlignment="Top" />
+                    <Button Content="Inserir e Seguinte" Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="164,220,0,0" Name="button14" VerticalAlignment="Top" Width="117" />
+                    <Button Content="Terminar" Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="348,220,0,0" Name="button15" VerticalAlignment="Top" Width="75" />
                 </Grid>
             </TabItem>
             <TabItem Header="Sintomas" Name="tabItem8">
@@ -90,16 +98,18 @@
             </TabItem>
             <TabItem Header="deficiencias" Name="tabItem9">
                 <Grid>
-                    <TextBox Height="23" HorizontalAlignment="Left" Margin="209,51,0,0" Name="textBox8" VerticalAlignment="Top" Width="120" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="209,51,0,0" Name="textBox8" VerticalAlignment="Top" Width="148" />
                     <Label Content="Insira a deficiência nutritiva:" Height="28" HorizontalAlignment="Left" Margin="37,46,0,0" Name="label15" VerticalAlignment="Top" />
+                    <Button Content="Inserir" Height="23" HorizontalAlignment="Left" Margin="405,51,0,0" Name="button16" VerticalAlignment="Top" Width="75" Click="button16_Click" />
                 </Grid>
             </TabItem>
             <TabItem Header="Especies" Name="tabItem10">
                 <Grid>
-                    <TextBox Height="23" HorizontalAlignment="Left" Margin="204,55,0,0" Name="textBox9" VerticalAlignment="Top" Width="282" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="204,55,0,0" Name="textBox9" VerticalAlignment="Top" Width="288" />
                     <TextBox Height="23" HorizontalAlignment="Right" Margin="0,106,310,0" Name="textBox10" VerticalAlignment="Top" Width="288" />
                     <Label Content="Nome Comum da espécie:" Height="28" HorizontalAlignment="Left" Margin="26,50,0,0" Name="label16" VerticalAlignment="Top" />
                     <Label Content="Nome científico da espécie:" Height="28" HorizontalAlignment="Left" Margin="26,106,0,0" Name="label17" VerticalAlignment="Top" />
+                    <Button Content="Inserir" Height="23" HorizontalAlignment="Left" Margin="650,105,0,0" Name="button21" VerticalAlignment="Top" Width="75" />
                 </Grid>
             </TabItem>
             <TabItem Header="Especies e dificiencias" Name="tabItem11">

@@ -54,11 +54,8 @@ namespace HortoPericialAdmin
         {
             databaseconnection NewConnection = new databaseconnection();
             NewConnection.dbConnection();
-
-
             MySqlCommand querysql = new MySqlCommand("select nome_util, password from utilizadores where nome_util='" + this.textBox1.Text + "' and password='" + this.passwordBox1.Password + "'", databaseconnection.db);
-
-           MySqlDataReader dataread = querysql.ExecuteReader();
+            MySqlDataReader dataread = querysql.ExecuteReader();
             int count = 0;
             while (dataread.Read())
             {
@@ -102,12 +99,12 @@ namespace HortoPericialAdmin
             passwordBox1.Clear();
             comboBox1.Items.Clear();
             comboBox2.Items.Clear();
+            comboBox3.Items.Clear();
             databaseconnection.db.Close();
 
         }
 
-
-        // Inserir distrito
+        // Inserir distrito menu
         private void button1_Click_1(object sender, RoutedEventArgs e)
         {
             tabControl1.SelectedIndex = 2;
@@ -136,6 +133,7 @@ namespace HortoPericialAdmin
             button5.Visibility = Visibility.Hidden;
             comboBox1.Items.Clear();
             comboBox2.Items.Clear();
+            comboBox3.Items.Clear();
         }
 
         // Verifica se o botão de insirir do distrio pode estar activo ou nao
@@ -159,13 +157,14 @@ namespace HortoPericialAdmin
             textBox2.Clear();
             button2.Visibility = Visibility.Hidden;
             button5.Visibility = Visibility.Visible;
-
+            
             databaseconnection NewConnection = new databaseconnection();
             NewConnection.dbConnection();
 
             MySqlCommand querysql = new MySqlCommand("select * from distrito", databaseconnection.db);
 
             MySqlDataReader dataread = querysql.ExecuteReader();
+           
             int count = 0;
             while (dataread.Read())
             {
@@ -187,7 +186,8 @@ namespace HortoPericialAdmin
 
             databaseconnection.db.Close();
         }
-
+        
+        // inserir concelho
         private void button7_Click(object sender, RoutedEventArgs e)
         {
 
@@ -205,17 +205,27 @@ namespace HortoPericialAdmin
 
         }
 
+        // verifica a selecção da combobox1
         private void comboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string selectedItem = comboBox1.Items[comboBox1.SelectedIndex].ToString();
-            if (String.Compare(selectedItem, "Adicionar novo Distrito") == 0)
+            try
             {
-                MessageBox.Show("compare");
+                string selectedItem = comboBox1.Items[comboBox1.SelectedIndex].ToString();
+                string teste = comboBox1.SelectedIndex.ToString();
+                if (String.Compare(selectedItem, "Adicionar novo Distrito") == 0)
+                {
+                    MessageBox.Show(teste);
+
+                }
+                else
+                {
+                    MessageBox.Show(teste);
+                }
             }
-            else
+            catch (Exception E)
             {
-                MessageBox.Show("false");
-            }
+                return;
+            }            
         }
 
         // questionset menu botão
@@ -247,8 +257,9 @@ namespace HortoPericialAdmin
             NewConnection.dbConnection();
 
             MySqlCommand querysql = new MySqlCommand("select * from Questionset", databaseconnection.db);
-
+            
             MySqlDataReader dataread = querysql.ExecuteReader();
+           
             int count = 0;
             comboBox2.Items.Add("Escolha a sua QuestionSet");
             while (dataread.Read())
@@ -268,11 +279,26 @@ namespace HortoPericialAdmin
                 comboBox2.Visibility = Visibility.Visible;
 
             }
+            dataread.Close();
 
+            MySqlCommand querysql1 = new MySqlCommand("select * from pre_diagnostico", databaseconnection.db);
+            MySqlDataReader dataread1 = querysql1.ExecuteReader();
+
+            comboBox3.Items.Add("0 - Esta é a primeira pergunta!");
+            while (dataread1.Read())
+            {
+                comboBox3.Items.Add(dataread1["id_pergunta"].ToString() + " " + "-" + " " + dataread1["pergunta"].ToString());
+            }
+            dataread1.Close();
             databaseconnection.db.Close();
+
+            comboBox2.SelectedIndex = 0;
+            comboBox3.SelectedIndex = 0;
+           
 
         }
 
+        //inserir questionset
         private void button10_Click(object sender, RoutedEventArgs e)
         {
             databaseconnection NewConnection = new databaseconnection();
@@ -283,7 +309,7 @@ namespace HortoPericialAdmin
             databaseconnection.db.Close();
             MessageBox.Show("Sucesso!!");
         }
-
+        // testa se o botão de inserir questionset pode ou não estar ativo
         private void textBox4_TextChanged(object sender, TextChangedEventArgs e)
         {
             int temp = textBox4.Text.Length;
@@ -295,6 +321,190 @@ namespace HortoPericialAdmin
             {
                 button10.IsHitTestVisible = true;
             }
+        }
+
+        // inserir deficiencias menu botão
+        private void button13_Click(object sender, RoutedEventArgs e)
+        {
+            tabControl1.SelectedIndex = 8;
+            textBox8.Clear();
+            button5.Visibility = Visibility.Visible;
+
+        }
+
+        // inserir deficieencia
+        private void button16_Click(object sender, RoutedEventArgs e)
+        {
+            databaseconnection NewConnection = new databaseconnection();
+            NewConnection.dbConnection();
+
+            MySqlCommand querysql = new MySqlCommand("INSERT INTO deficiencias (nome_deficiencia) Values ('" + this.textBox8.Text + "')", databaseconnection.db);
+            querysql.ExecuteNonQuery();
+            databaseconnection.db.Close();
+            MessageBox.Show("Sucesso!!");
+        }
+
+        // botão menu questionarios
+        private void button17_Click(object sender, RoutedEventArgs e)
+        {
+            tabControl1.SelectedIndex = 6;
+
+            button5.Visibility = Visibility.Visible;
+
+
+            databaseconnection NewConnection = new databaseconnection();
+            NewConnection.dbConnection();
+
+            MySqlCommand querysql = new MySqlCommand("select * from Questionset", databaseconnection.db);
+
+            MySqlDataReader dataread = querysql.ExecuteReader();
+
+            int count = 0;
+            comboBox4.Items.Add("Escolha a sua QuestionSet");
+            while (dataread.Read())
+            {
+                count = count + 1;
+                comboBox4.Items.Add(dataread["id_qs"].ToString() + " " + "-" + " " + dataread["name_qs"].ToString());
+            }
+
+            databaseconnection.db.Close();
+
+        }
+
+        private void button18_Click(object sender, RoutedEventArgs e)
+        {
+            tabControl1.SelectedIndex = 7;
+
+            button5.Visibility = Visibility.Visible;
+
+            databaseconnection NewConnection = new databaseconnection();
+            NewConnection.dbConnection();
+
+            databaseconnection.db.Close();
+        }
+
+        private void button19_Click(object sender, RoutedEventArgs e)
+        {
+            tabControl1.SelectedIndex = 9;
+
+            button5.Visibility = Visibility.Visible;
+
+            databaseconnection NewConnection = new databaseconnection();
+            NewConnection.dbConnection();
+
+            databaseconnection.db.Close();
+        }
+
+        private void button20_Click(object sender, RoutedEventArgs e)
+        {
+            tabControl1.SelectedIndex = 10;
+
+            button5.Visibility = Visibility.Visible;
+
+            databaseconnection NewConnection = new databaseconnection();
+            NewConnection.dbConnection();
+
+            databaseconnection.db.Close();
+        }
+
+        // inserir pergunta de prediagnostico e fazer inserção seguinte
+        private void button11_Click(object sender, RoutedEventArgs e)
+        {
+            String temp1="";
+            String selectedItem1 = comboBox2.Items[comboBox2.SelectedIndex].ToString();
+            String selectedItem2 = comboBox3.Items[comboBox3.SelectedIndex].ToString();
+            String[] getid_qs = selectedItem1.Split(' ');
+            String[] getid_pred = selectedItem2.Split(' ');
+            int aux = Convert.ToInt32(getid_pred[0]);
+            int aux1 = Convert.ToInt32(getid_qs[0]);
+
+            if (radioButton2.IsChecked == true)
+            {
+                temp1 = radioButton2.Content.ToString();
+                MessageBox.Show(temp1);
+            }
+            if (radioButton1.IsChecked == true)
+            {
+                temp1 = radioButton1.Content.ToString();
+                MessageBox.Show(temp1);
+            }
+            if(radioButton2.IsChecked == false && radioButton1.IsChecked == false)
+            {
+                temp1 = null;
+                MessageBox.Show(temp1);
+            }
+            databaseconnection NewConnection = new databaseconnection();
+            NewConnection.dbConnection();
+
+
+
+            if (String.Compare(selectedItem2, "0 - Esta é a primeira pergunta!") == 0)
+            {
+                MySqlCommand querysql = new MySqlCommand("INSERT INTO pre_diagnostico (pergunta, resposta, flag, id_qs_fk_pd) Values ('" + this.textBox5.Text + "', '" + this.textBox6.Text + "', '" + temp1 + "','" + aux1 + "')", databaseconnection.db);
+                querysql.ExecuteNonQuery();
+                MessageBox.Show("teste!!");
+
+                MySqlCommand querysql1 = new MySqlCommand("SELECT id_pergunta FROM pre_diagnostico WHERE pergunta = '" + this.textBox5.Text + "'", databaseconnection.db);
+                MySqlDataReader dataread = querysql1.ExecuteReader();
+                String readaux="";
+                while (dataread.Read())
+                {
+                    readaux = dataread["id_pergunta"].ToString();
+                }
+                dataread.Close();
+                int getid_perg = Convert.ToInt32(readaux);
+
+                MySqlCommand querysql2 = new MySqlCommand("UPDATE questionset SET pre_diagnostico_perguntaid = '" + getid_perg + "' WHERE id_qs = '" + aux1 + "'", databaseconnection.db);
+                querysql2.ExecuteNonQuery();
+                                
+                MessageBox.Show("Sucesso!!");
+
+            }
+            else
+            {
+                MySqlCommand querysql = new MySqlCommand("INSERT INTO pre_diagnostico (pergunta, resposta, flag, id_qs_fk_pd) Values ('" + this.textBox5.Text + "', '" + this.textBox6.Text + "', '" + temp1 + "','" + aux1 + "')", databaseconnection.db);
+                querysql.ExecuteNonQuery();
+                MessageBox.Show("teste!!");
+
+                MySqlCommand querysql1 = new MySqlCommand("SELECT id_pergunta FROM pre_diagnostico WHERE pergunta = '" + this.textBox5.Text + "'", databaseconnection.db);
+                MySqlDataReader dataread = querysql1.ExecuteReader();
+                String readaux = "";
+                while (dataread.Read())
+                {
+                    readaux = dataread["id_pergunta"].ToString();
+                }
+                dataread.Close();
+                int getid_perg = Convert.ToInt32(readaux);
+
+                MySqlCommand querysql2 = new MySqlCommand("UPDATE pre_diagnostico SET pre_diagnostico_id_pergunta= '" + getid_perg + "' WHERE id_pergunta = '" + aux + "'", databaseconnection.db);
+                querysql2.ExecuteNonQuery();
+
+                MessageBox.Show("Sucesso!!");
+            }
+
+            MessageBox.Show("Sucesso!!");
+
+            radioButton1.IsChecked = false;
+            radioButton2.IsChecked = false;
+            textBox5.Clear();
+            textBox6.Clear();
+            comboBox3.Items.Clear();
+
+            MySqlCommand querysql3 = new MySqlCommand("select * from pre_diagnostico", databaseconnection.db);
+            MySqlDataReader dataread1 = querysql3.ExecuteReader();
+            int count = 0;
+            while (dataread1.Read())
+            {
+                count++;
+                comboBox3.Items.Add(dataread1["id_pergunta"].ToString() + " " + "-" + " " + dataread1["pergunta"].ToString());
+            }
+        
+
+            dataread1.Close();
+            databaseconnection.db.Close();
+
+            comboBox3.SelectedIndex = count-1;
+
         }
     }
 }
