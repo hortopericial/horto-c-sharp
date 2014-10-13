@@ -371,18 +371,55 @@ namespace HortoPericialAdmin
 
         }
 
+        // menu inserir sintomas
         private void button18_Click(object sender, RoutedEventArgs e)
         {
             tabControl1.SelectedIndex = 7;
 
             button5.Visibility = Visibility.Visible;
 
+            comboBox9.Items.Add("Sem Resposta. ");
+            comboBox9.Items.Add("Apresenta a seguinte deficiência nutritiva:");
+            comboBox9.Items.Add("Poderá não ser uma deficiência nutritiva.");
+            comboBox9.SelectedIndex = 0;
+
+
             databaseconnection NewConnection = new databaseconnection();
             NewConnection.dbConnection();
+
+            MySqlCommand querysql = new MySqlCommand("select * from questionarios", databaseconnection.db);
+
+            MySqlDataReader dataread = querysql.ExecuteReader();
+  
+            while (dataread.Read())
+            {
+               
+                comboBox5.Items.Add(dataread["id_quest"].ToString() + " " + "-" + " " + dataread["questao"].ToString());
+                comboBox6.Items.Add(dataread["id_quest"].ToString() + " " + "-" + " " + dataread["questao"].ToString());
+            }
+            dataread.Close();
+
+            MySqlCommand querysql1 = new MySqlCommand("select * from deficiencias", databaseconnection.db);
+
+            MySqlDataReader dataread1 = querysql1.ExecuteReader();
+
+            comboBox7.Items.Add("0 - Sem deficiência.");
+            while (dataread1.Read())
+            {
+
+                comboBox7.Items.Add(dataread1["id_deficiencia"].ToString() + " " + "-" + " " + dataread1["nome_deficiencia"].ToString());
+                
+            }
+            dataread1.Close();
+            
+            comboBox5.SelectedIndex = 0;
+            comboBox6.SelectedIndex = 1;
+            comboBox7.SelectedIndex = 0;
 
             databaseconnection.db.Close();
         }
 
+        //menu inserir especie
         private void button19_Click(object sender, RoutedEventArgs e)
         {
             tabControl1.SelectedIndex = 9;
@@ -392,7 +429,20 @@ namespace HortoPericialAdmin
             databaseconnection NewConnection = new databaseconnection();
             NewConnection.dbConnection();
 
+            MySqlCommand querysql = new MySqlCommand("select * from Questionset", databaseconnection.db);
+
+            MySqlDataReader dataread = querysql.ExecuteReader();
+
+            int count = 0;
+            while (dataread.Read())
+            {
+                count = count + 1;
+                comboBox8.Items.Add(dataread["id_qs"].ToString() + " " + "-" + " " + dataread["name_qs"].ToString());
+            }
+
+            comboBox8.SelectedIndex = 0;
             databaseconnection.db.Close();
+
         }
 
         private void button20_Click(object sender, RoutedEventArgs e)
@@ -505,6 +555,74 @@ namespace HortoPericialAdmin
 
             comboBox3.SelectedIndex = count-1;
 
+        }
+
+        // questionario inserir perguntas
+        private void button14_Click(object sender, RoutedEventArgs e)
+        {
+            String selectedItem1 = comboBox4.Items[comboBox4.SelectedIndex].ToString();
+            String[] getid_qs = selectedItem1.Split(' ');
+            int aux1 = Convert.ToInt32(getid_qs[0]);
+            databaseconnection NewConnection = new databaseconnection();
+            NewConnection.dbConnection();
+
+            
+
+            if (radioButton3.IsChecked == true)
+            {
+                MySqlCommand querysql = new MySqlCommand("INSERT INTO questionarios (questao, id_qs_fk) Values ('" + this.textBox7.Text + "','"+ aux1 +"')", databaseconnection.db);
+                querysql.ExecuteNonQuery();
+
+                MySqlCommand querysql1 = new MySqlCommand("SELECT id_quest FROM questionarios WHERE questao = '" + this.textBox7.Text + "'", databaseconnection.db);
+                MySqlDataReader dataread = querysql1.ExecuteReader();
+                String readaux = "";
+                while (dataread.Read())
+                {
+                    readaux = dataread["id_quest"].ToString();
+                }
+                dataread.Close();
+                int getid_perg = Convert.ToInt32(readaux);
+
+                MySqlCommand querysql2 = new MySqlCommand("UPDATE questionset SET questionarios_id_quest = '" + getid_perg + "' WHERE id_qs = '" + aux1 + "'", databaseconnection.db);
+                querysql2.ExecuteNonQuery();
+
+                MessageBox.Show("Sucesso!!");
+                radioButton3.IsEnabled = false;
+                radioButton4.IsChecked = true;
+                
+            }
+            if (radioButton4.IsChecked == true)
+            {
+                MySqlCommand querysql = new MySqlCommand("INSERT INTO questionarios (questao, id_qs_fk) Values ('" + this.textBox7.Text + "','" + aux1 + "')", databaseconnection.db);
+                querysql.ExecuteNonQuery();
+            }
+            if (radioButton3.IsChecked == false && radioButton4.IsChecked == false)
+            {
+               
+            }
+
+            textBox7.Clear();
+
+            databaseconnection.db.Close();
+            MessageBox.Show("Sucesso!!");
+        }
+
+        // inserir especie
+        private void button21_Click(object sender, RoutedEventArgs e)
+        {
+            String selectedItem1 = comboBox8.Items[comboBox8.SelectedIndex].ToString();
+            String[] getid_qs = selectedItem1.Split(' ');
+            int aux1 = Convert.ToInt32(getid_qs[0]);
+
+            databaseconnection NewConnection = new databaseconnection();
+            NewConnection.dbConnection();
+
+            MySqlCommand querysql = new MySqlCommand("INSERT INTO especies (nome_comum, nome_cientifico, questionset_id_qs) Values ('" + this.textBox9.Text + "','" + this.textBox10.Text + "','"+ aux1 +"')", databaseconnection.db);
+            querysql.ExecuteNonQuery();
+            databaseconnection.db.Close();
+            MessageBox.Show("Sucesso!!");
+            textBox9.Clear();
+            textBox10.Clear();
         }
     }
 }

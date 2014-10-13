@@ -29,7 +29,7 @@
                     <Button Content="Inserir Deficiências" Grid.Column="2" Height="23" HorizontalAlignment="Right" Margin="0,67,180,0" Name="button13" VerticalAlignment="Top" Width="131" Click="button13_Click" />
                     <Button Content="Inserir Questionário" Grid.Column="2" Height="23" HorizontalAlignment="Left" Margin="199,112,0,0" Name="button17" VerticalAlignment="Top" Width="137" Click="button17_Click" />
                     <Button Content="Inserir Sintomas" Grid.Column="2" Height="23" HorizontalAlignment="Left" Margin="199,157,0,0" Name="button18" VerticalAlignment="Top" Width="137" Click="button18_Click" />
-                    <Button Content="Inserir Deficiencias" Grid.Column="2" Height="23" HorizontalAlignment="Left" Margin="369,112,0,0" Name="button19" VerticalAlignment="Top" Width="131" Click="button19_Click" />
+                    <Button Content="Inserir Especies" Grid.Column="2" Height="23" HorizontalAlignment="Left" Margin="369,112,0,0" Name="button19" VerticalAlignment="Top" Width="131" Click="button19_Click" />
                     <Button Content="Especies e Dificiencias" Grid.Column="2" Height="23" HorizontalAlignment="Left" Margin="369,157,0,0" Name="button20" VerticalAlignment="Top" Width="131" Click="button20_Click" />
                 </Grid>
             </TabItem>
@@ -89,12 +89,24 @@
                     <Label Content="É a primeira pergunta?" Height="28" HorizontalAlignment="Left" Margin="24,170,0,0" Name="label14" VerticalAlignment="Top" />
                     <RadioButton Content="Sim" Height="16" HorizontalAlignment="Left" Margin="162,175,0,0" Name="radioButton3" VerticalAlignment="Top" />
                     <RadioButton Content="Não" Height="16" HorizontalAlignment="Left" Margin="269,175,0,0" Name="radioButton4" VerticalAlignment="Top" />
-                    <Button Content="Inserir e Seguinte" Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="164,220,0,0" Name="button14" VerticalAlignment="Top" Width="117" />
+                    <Button Content="Inserir e Seguinte" Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="164,220,0,0" Name="button14" VerticalAlignment="Top" Width="117" Click="button14_Click" />
                     <Button Content="Terminar" Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="348,220,0,0" Name="button15" VerticalAlignment="Top" Width="75" />
                 </Grid>
             </TabItem>
             <TabItem Header="Sintomas" Name="tabItem8">
-                <Grid />
+                <Grid>
+                    <TextBox Height="84" HorizontalAlignment="Left" Margin="14,40,0,0" Name="textBox11" VerticalAlignment="Top" Width="208" />
+                    <ComboBox Height="23" HorizontalAlignment="Left" Margin="379,45,0,0" Name="comboBox5" VerticalAlignment="Top" Width="190" />
+                    <ComboBox Height="23" HorizontalAlignment="Left" Margin="379,78,0,0" Name="comboBox6" VerticalAlignment="Top" Width="190" />
+                    <ComboBox Height="23" HorizontalAlignment="Left" Margin="379,115,0,0" Name="comboBox7" VerticalAlignment="Top" Width="190" />
+                    <Button Content="Inserir" Height="23" HorizontalAlignment="Left" Margin="606,212,0,0" Name="button22" VerticalAlignment="Top" Width="147" />
+                    <Label Content="Que sintoma apresenta:" Height="28" HorizontalAlignment="Left" Margin="14,6,0,0" Name="label18" VerticalAlignment="Top" />
+                    <Label Content="Resposta a apresentar:" Height="28" HorizontalAlignment="Left" Margin="236,11,0,0" Name="label19" VerticalAlignment="Top" />
+                    <Label Content="Pergunta de origem:" Height="28" HorizontalAlignment="Left" Margin="236,45,0,0" Name="label20" VerticalAlignment="Top" />
+                    <Label Content="Pergunta seguinte:" Height="28" HorizontalAlignment="Left" Margin="236,78,0,0" Name="label21" VerticalAlignment="Top" />
+                    <Label Content="Apresenta a deficiência:" Height="28" HorizontalAlignment="Left" Margin="236,110,0,0" Name="label22" VerticalAlignment="Top" />
+                    <ComboBox Height="23" HorizontalAlignment="Right" Margin="0,11,233,0" Name="comboBox9" VerticalAlignment="Top" Width="190" />
+                </Grid>
             </TabItem>
             <TabItem Header="deficiencias" Name="tabItem9">
                 <Grid>
@@ -109,7 +121,9 @@
                     <TextBox Height="23" HorizontalAlignment="Right" Margin="0,106,310,0" Name="textBox10" VerticalAlignment="Top" Width="288" />
                     <Label Content="Nome Comum da espécie:" Height="28" HorizontalAlignment="Left" Margin="26,50,0,0" Name="label16" VerticalAlignment="Top" />
                     <Label Content="Nome científico da espécie:" Height="28" HorizontalAlignment="Left" Margin="26,106,0,0" Name="label17" VerticalAlignment="Top" />
-                    <Button Content="Inserir" Height="23" HorizontalAlignment="Left" Margin="650,105,0,0" Name="button21" VerticalAlignment="Top" Width="75" />
+                    <Button Content="Inserir" Height="23" HorizontalAlignment="Left" Margin="650,105,0,0" Name="button21" VerticalAlignment="Top" Width="75" Click="button21_Click" />
+                    <ComboBox Height="23" HorizontalAlignment="Left" Margin="204,154,0,0" Name="comboBox8" VerticalAlignment="Top" Width="229" />
+                    <Label Content="Selecione o QuestionSet:" Height="28" HorizontalAlignment="Left" Margin="26,149,0,0" Name="label23" VerticalAlignment="Top" />
                 </Grid>
             </TabItem>
             <TabItem Header="Especies e dificiencias" Name="tabItem11">
