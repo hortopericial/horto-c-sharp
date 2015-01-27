@@ -1,0 +1,31 @@
+﻿<Window x:Class="WpfNutWatch.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="NutWatch" Height="450" Width="1010" ResizeMode="NoResize">
+    <Grid>
+        <TabControl Height="350" HorizontalAlignment="Left" Margin="12,12,0,0" Name="tabControl1" VerticalAlignment="Top" Width="970">
+            <TabItem Header="Login" Name="tabItem1">
+                <Grid>
+                    <Button Content="Login" Height="23" HorizontalAlignment="Left" Margin="444,227,0,0" Name="buttonLogin" VerticalAlignment="Top" Width="129" Click="buttonLogin_Click" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="427,87,0,0" Name="textBoxUser" VerticalAlignment="Top" Width="200" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="427,158,0,0" Name="textBoxPwd" VerticalAlignment="Top" Width="200" />
+                    <Label Content="Username:" Height="28" HorizontalAlignment="Left" Margin="343,82,0,0" Name="label1" VerticalAlignment="Top" />
+                    <Label Content="Password:" Height="28" HorizontalAlignment="Left" Margin="343,153,0,0" Name="label2" VerticalAlignment="Top" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Menu" Name="tabItem2">
+                <Grid Width="948">
+                    <Rectangle Height="300" HorizontalAlignment="Left" Margin="6,6,0,0" Name="rectangle1" Stroke="Black" VerticalAlignment="Top" Width="200" />
+                    <Button Content="Página Inicial" Height="23" HorizontalAlignment="Left" Margin="50,95,0,0" Name="buttonPagIni" VerticalAlignment="Top" Width="100" Click="buttonPagIni_Click" />
+                    <Button Content="Noticias" Height="23" HorizontalAlignment="Left" Margin="50,158,0,0" Name="button1" VerticalAlignment="Top" Width="100" />
+                    <Rectangle Height="300" HorizontalAlignment="Left" Margin="228,6,0,0" Name="rectangle2" Stroke="Black" VerticalAlignment="Top" Width="712" />
+                    <Label Content="Gerir Página Web" Height="28" HorizontalAlignment="Left" Margin="40,26,0,0" Name="label3" VerticalAlignment="Top" Width="120" FontSize="14" />
+                    <Button Content="Distritos" Height="23" HorizontalAlignment="Left" Margin="267,95,0,0" Name="buttonDis" VerticalAlignment="Top" Width="75" Click="buttonDis_Click" />
+                    <Button Content="Concelhos" Height="23" HorizontalAlignment="Left" Margin="267,158,0,0" Name="button2" VerticalAlignment="Top" Width="75" Click="button2_Click" />
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Button Content="Sair" Height="23" HorizontalAlignment="Left" Margin="907,376,0,0" Name="buttonSair" VerticalAlignment="Top" Width="75" Click="buttonSair_Click" />
+        <Button Content="Logout" Height="23" HorizontalAlignment="Left" Margin="814,376,0,0" Name="buttonLogout" VerticalAlignment="Top" Width="75" Click="buttonLogout_Click" />
+    </Grid>
+</Window>

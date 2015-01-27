@@ -20,3 +20,4 @@ C:\Dev\Hortopericial\horto-c-sharp\HortoPericialAdmin\HortoPericialAdmin\obj\x86
 C:\Dev\Hortopericial\horto-c-sharp\HortoPericialAdmin\HortoPericialAdmin\obj\x86\Debug\HortoPericialAdmin.g.resources
 C:\Dev\Hortopericial\horto-c-sharp\HortoPericialAdmin\HortoPericialAdmin\obj\x86\Debug\HortoPericialAdmin.Properties.Resources.resources
 C:\Dev\Hortopericial\horto-c-sharp\HortoPericialAdmin\HortoPericialAdmin\obj\x86\Debug\HortoPericialAdmin.csproj.GenerateResource.Cache
+C:\Dev\Hortopericial\horto-c-sharp\HortoPericialAdmin\HortoPericialAdmin\obj\x86\Debug\HortoPericialAdmin.Form1.resources

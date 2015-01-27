@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,15 +13,27 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
+using System.Collections;
+
 
 
 namespace HortoPericialAdmin
 {
+    
+          
+
+    
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        // FTP
+        String url = @"ftp://nutwatch.twomini.com/imagensDiag/";
+         String user = "u963389833";
+        String pwd = "Jonas123"; 
+
         /// <summary>
         /// inicialização dos compomentes.
         /// </summary>
@@ -39,6 +52,8 @@ namespace HortoPericialAdmin
             tabItem9.Visibility = Visibility.Hidden;
             tabItem10.Visibility = Visibility.Hidden;
             tabItem11.Visibility = Visibility.Hidden;
+            tabItem12.Visibility = Visibility.Hidden;
+            tabItem13.Visibility = Visibility.Hidden;
             button3.Visibility = Visibility.Hidden;
             button5.Visibility = Visibility.Hidden;
         }
@@ -107,9 +122,50 @@ namespace HortoPericialAdmin
         // Inserir distrito menu
         private void button1_Click_1(object sender, RoutedEventArgs e)
         {
-            tabControl1.SelectedIndex = 2;
-   
+            tabControl1.SelectedIndex = 2;   
             button5.Visibility = Visibility.Visible;
+
+            ArrayList list = new ArrayList();
+
+            databaseconnection NewConnection = new databaseconnection();
+            NewConnection.dbConnection();
+
+            MySqlCommand querysql = new MySqlCommand("select * from distrito", databaseconnection.db);
+
+            MySqlDataReader dataread = querysql.ExecuteReader();
+
+            
+
+            //int count = 0;
+            while (dataread.Read())
+            {
+               // count = count + 1;
+                //comboBox1.Items.Add(dataread["id_distrito"].ToString() + " " + "-" + " " + dataread["nome_dist"].ToString());
+                list.Add(dataread["id_distrito"].ToString());
+                list.Add(dataread["nome_dist"].ToString());
+            }
+
+            foreach (string value in list)
+            {
+                MessageBox.Show(value);
+                //Console.WriteLine(value); // bird, plant
+            }
+
+            dataGrid1.ItemsSource = list;
+            //comboBox1.Items.Add("Adicionar novo Distrito");
+            /*if (count == 0)
+            {
+                comboBox1.Visibility = Visibility.Hidden;
+            }
+
+            else
+            {
+                comboBox1.Visibility = Visibility.Visible;
+
+            }*/
+
+            databaseconnection.db.Close();
+
 
         }
 
@@ -123,6 +179,7 @@ namespace HortoPericialAdmin
             querysql.ExecuteNonQuery();
             databaseconnection.db.Close();
             MessageBox.Show("Sucesso!!");
+
 
         }
 
@@ -164,7 +221,9 @@ namespace HortoPericialAdmin
             MySqlCommand querysql = new MySqlCommand("select * from distrito", databaseconnection.db);
 
             MySqlDataReader dataread = querysql.ExecuteReader();
-           
+
+                                  
+        
             int count = 0;
             while (dataread.Read())
             {
@@ -378,7 +437,7 @@ namespace HortoPericialAdmin
 
             button5.Visibility = Visibility.Visible;
 
-            comboBox9.Items.Add("Sem Resposta. ");
+            comboBox9.Items.Add("Sem Resposta.");
             comboBox9.Items.Add("Apresenta a seguinte deficiência nutritiva:");
             comboBox9.Items.Add("Poderá não ser uma deficiência nutritiva.");
             comboBox9.SelectedIndex = 0;
@@ -613,7 +672,7 @@ namespace HortoPericialAdmin
             String selectedItem1 = comboBox8.Items[comboBox8.SelectedIndex].ToString();
             String[] getid_qs = selectedItem1.Split(' ');
             int aux1 = Convert.ToInt32(getid_qs[0]);
-
+           
             databaseconnection NewConnection = new databaseconnection();
             NewConnection.dbConnection();
 
@@ -621,8 +680,74 @@ namespace HortoPericialAdmin
             querysql.ExecuteNonQuery();
             databaseconnection.db.Close();
             MessageBox.Show("Sucesso!!");
+            FTPclass ligacao = new FTPclass();
+            ligacao.criar_diretoria(url, user, pwd, this.textBox9.Text);
+
+            string arquivo = ligacao.getfolderfile(this.textBox9.Text, "Sem deficiencia");
+            //MessageBox.Show(arquivo);
+            //string path = System.IO.Path.GetDirectoryName(arquivo);
+            string nome_arquivo = System.IO.Path.GetFileName(arquivo) ; 
+            ligacao.upload(arquivo,url,user,pwd,nome_arquivo,this.textBox9.Text);
+            MessageBox.Show("Operação com Sucesso!!");
             textBox9.Clear();
             textBox10.Clear();
+
+            
+
+            
+
+        }
+        // inserir sintomas.
+        private void button22_Click(object sender, RoutedEventArgs e)
+        {
+            
+            String selectedItem = comboBox5.Items[comboBox5.SelectedIndex].ToString();
+            String selectedItem1 = comboBox6.Items[comboBox6.SelectedIndex].ToString();
+            String selectedItem2 = comboBox7.Items[comboBox7.SelectedIndex].ToString();
+            String selectedItem3 = comboBox9.Items[comboBox9.SelectedIndex].ToString();
+            String[] getid_pai = selectedItem.Split(' ');
+            String[] getid_prox = selectedItem1.Split(' ');
+            String[] getid_def = selectedItem2.Split(' ');
+            int aux1 = Convert.ToInt32(getid_pai[0]);
+            int aux2 = Convert.ToInt32(getid_prox[0]);
+            int aux3 = Convert.ToInt32(getid_def[0]);
+            databaseconnection NewConnection = new databaseconnection();
+            NewConnection.dbConnection();
+
+            if (String.Compare(selectedItem3, "Sem Resposta.")==0 && aux3 == 0)
+            {
+                MySqlCommand querysql = new MySqlCommand("INSERT INTO sintomas (sintoma, id_quest_fk, prox_quest) Values ('" + this.textBox11.Text + "','"+ aux1 +"','" + aux2 + "')", databaseconnection.db);
+                querysql.ExecuteNonQuery();
+                databaseconnection.db.Close();
+              
+                MessageBox.Show("Sucesso!!");
+                textBox11.Clear();
+            }
+
+            
+        }
+
+        private void comboBox9_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        //menu para iniciar editar pagina de inicio  
+        private void button23_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //menu para iniciareditar noticias
+        private void button24_Click(object sender, RoutedEventArgs e)
+        {
+            
+            Form1 form = new Form1();
+            form.ShowDialog();
+
+
+
+
         }
     }
 }
