@@ -59,8 +59,7 @@ namespace WpfNutWatch
             Distrito formDis = new Distrito();
             formDis.ShowDialog();
         }
-
-
+        
         // menu para inserir concelho
         private void button2_Click(object sender, RoutedEventArgs e)
         {
@@ -78,7 +77,7 @@ namespace WpfNutWatch
             if (count != 0)
             {
                 Concelho formCon = new Concelho();
-                formCon.Show();
+                formCon.ShowDialog();
             }
             else 
             {
@@ -88,9 +87,8 @@ namespace WpfNutWatch
 
                     Distrito formDis = new Distrito();
                     formDis.ShowDialog();
-
                     Concelho formCon = new Concelho();
-                    formCon.Show();
+                    formCon.ShowDialog();
                 }
                 else
                 {
@@ -98,6 +96,58 @@ namespace WpfNutWatch
                 }
 
             }
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            FormNoti formnoti = new FormNoti();
+            formnoti.ShowDialog();
+        }
+
+        private void button3Def_Click(object sender, RoutedEventArgs e)
+        {
+            Deficiencia formDef = new Deficiencia();
+            formDef.ShowDialog();
+        }
+        //question set
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {
+            QuestionSet quest = new QuestionSet();
+            quest.ShowDialog();
+        }
+        //perguntas de diagnostico
+        private void buttonPerDia_Click(object sender, RoutedEventArgs e)
+        {
+            DBConnect NewcConnection = new DBConnect();
+            NewcConnection.dbConnection();
+            MySqlCommand verifica = new MySqlCommand("SELECT * FROM questionset", DBConnect.db);
+            MySqlDataReader read = verifica.ExecuteReader();
+            int count = 0;
+            while (read.Read())
+            {
+                count = count + 1;
+            }
+            DBConnect.db.Close();
+
+            if (count != 0)
+            {
+                Questionario pergunt = new Questionario();
+                pergunt.ShowDialog();
+            }
+            else
+            {
+                if (MessageBox.Show("Não tem QuestionSet inserido, quer inserir agora?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    QuestionSet quest = new QuestionSet();
+                    quest.ShowDialog();
+                    Questionario pergunt = new Questionario();
+                    pergunt.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Operação anulada!!!");
+                }
+            }           
         }
     }
 }

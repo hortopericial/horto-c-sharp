@@ -1,0 +1,17 @@
+C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\bin\Release\WpfNutWatch.exe
+C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\bin\Release\WpfNutWatch.pdb
+C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Release\MainWindow.baml
+C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Release\MainWindow.g.cs
+C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Release\App.g.cs
+C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Release\WpfNutWatch_MarkupCompile.cache
+C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Release\WpfNutWatch.g.resources
+C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Release\WpfNutWatch.Concelho.resources
+C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Release\WpfNutWatch.Deficiencia.resources
+C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Release\WpfNutWatch.Distrito.resources
+C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Release\WpfNutWatch.FormNoti.resources
+C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Release\WpfNutWatch.FormPagIni.resources
+C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Release\WpfNutWatch.Properties.Resources.resources
+C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Release\WpfNutWatch.QuestionSet.resources
+C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Release\WpfNutWatch.csproj.GenerateResource.Cache
+C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Release\WpfNutWatch.exe
+C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Release\WpfNutWatch.pdb

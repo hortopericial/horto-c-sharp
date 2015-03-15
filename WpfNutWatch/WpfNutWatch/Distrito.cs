@@ -18,7 +18,7 @@ namespace WpfNutWatch
         public Distrito()
         {
             InitializeComponent();
-            fillgrid();
+            fillgridDis();
         }
 
         private void buttonSair_Click(object sender, EventArgs e)
@@ -42,26 +42,36 @@ namespace WpfNutWatch
             DBConnect.db.Close(); 
             if (count == 0)
             {
-                NewcConnection = new DBConnect();
-                NewcConnection.dbConnection();
-                MySqlCommand querysql = new MySqlCommand("INSERT INTO distrito (nome_dist) Values ('" + this.textBoxDis.Text + "')", DBConnect.db);
-                querysql.ExecuteNonQuery();
-                MessageBox.Show("Sucesso!!");
+                DialogResult dlg = MessageBox.Show("Confirma a inserção do Distrito " + this.textBoxDis.Text + "?", "MessageBox Title", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dlg == DialogResult.Yes)
+                {
+
+                    NewcConnection = new DBConnect();
+                    NewcConnection.dbConnection();
+                    MySqlCommand querysql = new MySqlCommand("INSERT INTO distrito (nome_dist) Values ('" + this.textBoxDis.Text + "')", DBConnect.db);
+                    querysql.ExecuteNonQuery();
+                    MessageBox.Show("Sucesso!!");
+                }
+                else
+                {
+                    MessageBox.Show("Operação Cancelada!!");
+                }
             }
             else
             {
                 MessageBox.Show("Distrito já existe!!");
             }
             DBConnect.db.Close();           
-            fillgrid();
+            fillgridDis();
         }
 
-        private void fillgrid()
+        private void fillgridDis()
         {
-
+            id = -1;
             buttonDel.Visible = false;
             buttonEdit.Visible = false;
             buttonIns.Visible = false;
+            buttonCancel.Visible = false;
             DBConnect NewcConnection = new DBConnect();
             NewcConnection.dbConnection();
             MySqlCommand querysql = new MySqlCommand("Select * From distrito", DBConnect.db);
@@ -78,6 +88,8 @@ namespace WpfNutWatch
                 this.dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[1].HeaderText = "Distrito";
                 dados.Update(tabela);
+                dataGridView1.AutoResizeColumns();
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
             catch (Exception ex)
             {
@@ -117,8 +129,8 @@ namespace WpfNutWatch
                     buttonEdit.Visible = false;
                     buttonIns.Visible = false;
                     textBoxDis.Clear();
+                    id = -1;
                     MessageBox.Show("Selecione uma celula valida");
-                 
                 }
             }
 
@@ -130,22 +142,46 @@ namespace WpfNutWatch
             {
                 DBConnect NewcConnection = new DBConnect();
                 NewcConnection.dbConnection();
-                MySqlCommand querysql = new MySqlCommand(" UPDATE distrito set nome_dist = @distrito where id_distrito =@Id", DBConnect.db);
-                MessageBox.Show(id.ToString());
-                querysql.Parameters.AddWithValue("@Id", id.ToString());
-                querysql.Parameters.AddWithValue("@distrito", this.textBoxDis.Text);
-
-
-                querysql.ExecuteNonQuery();
+                MySqlCommand verifica = new MySqlCommand("SELECT * FROM distrito WHERE nome_dist LIKE @distrito", DBConnect.db);
+          
+                verifica.Parameters.AddWithValue("@distrito", this.textBoxDis.Text);
+                MySqlDataReader read = verifica.ExecuteReader();
+                int count = 0;
+                while (read.Read())
+                {
+                    count = count + 1;
+                }
                 DBConnect.db.Close();
+                if (count == 0)
+                {
+                    DialogResult dlg = MessageBox.Show("Confirma a alteração no Distrito " + this.textBoxDis.Text + "?", "MessageBox Title", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dlg == DialogResult.Yes)
+                    {
+                        NewcConnection = new DBConnect();
+                        NewcConnection.dbConnection();
+                        MySqlCommand querysql = new MySqlCommand(" UPDATE distrito set nome_dist = @distrito where id_distrito =@Id", DBConnect.db);
+                        querysql.Parameters.AddWithValue("@Id", id.ToString());
+                        querysql.Parameters.AddWithValue("@distrito", this.textBoxDis.Text);
+                        querysql.ExecuteNonQuery();
+                        DBConnect.db.Close();
+                        MessageBox.Show("Alteração Gravada!!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Alteração cancelada!!");
+                    }
+                }
+                else 
+                {
+                    MessageBox.Show("Distrito já existe!!");
+                }
             }
             catch
             {
                 MessageBox.Show("Ocorreu um erro!!");
             }
-            MessageBox.Show("actualizado!!");
-            fillgrid();
-
+            
+            fillgridDis();
         }
 
         private void buttonDel_Click(object sender, EventArgs e)
@@ -167,14 +203,29 @@ namespace WpfNutWatch
             {
                 try
                 {
-                    NewcConnection = new DBConnect();
-                    NewcConnection.dbConnection();
-                    MySqlCommand querysql = new MySqlCommand(" Delete from distrito where id_distrito =@Id", DBConnect.db);
-                    MessageBox.Show(id.ToString());
-                    querysql.Parameters.AddWithValue("@Id", id.ToString());
-                    querysql.ExecuteNonQuery();
-                    MessageBox.Show("Apagado com sucesso!!");
-                    DBConnect.db.Close();
+                    DialogResult dlg = MessageBox.Show("Quer apagar o Distrito " + this.textBoxDis.Text + "?", "MessageBox Title", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                     if (dlg == DialogResult.Yes)
+                     {
+                         DialogResult dlg2 = MessageBox.Show("Tem a certeza que quer apagar o Distrito " + this.textBoxDis.Text + " ?", "MessageBox Title", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                         if (dlg2 == DialogResult.Yes)
+                         {
+                             NewcConnection = new DBConnect();
+                             NewcConnection.dbConnection();
+                             MySqlCommand querysql = new MySqlCommand(" Delete from distrito where id_distrito =@Id", DBConnect.db);
+                             querysql.Parameters.AddWithValue("@Id", id.ToString());
+                             querysql.ExecuteNonQuery();
+                             MessageBox.Show("Apagado com sucesso!!");
+                             DBConnect.db.Close();
+                         }
+                         else
+                         {
+                             MessageBox.Show("Operação anulada!!!");
+                         }
+                     }
+                     else 
+                     {
+                         MessageBox.Show("Operação anulada!!!");
+                     }
                 }
                 catch
                 {
@@ -183,21 +234,38 @@ namespace WpfNutWatch
             }
             else
             {
-                DialogResult dlg = MessageBox.Show("Quer apagar o Distrito e os concelhos associados?", "MessageBox Title", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dlg = MessageBox.Show("Quer apagar o Distrito " + this.textBoxDis.Text + " e os concelhos associados?", "MessageBox Title", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dlg == DialogResult.Yes)
                 {
+                    DialogResult dlg2 = MessageBox.Show("Tem a certeza que quer apagar o Distrito " + this.textBoxDis.Text + " e os concelhos associados?", "MessageBox Title", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dlg2 == DialogResult.Yes)
+                    {
+                        NewcConnection = new DBConnect();
+                        NewcConnection.dbConnection();
+                        MySqlCommand querysql = new MySqlCommand(" Delete from concelho where iddistrito_fk =@Id", DBConnect.db);
+                        querysql.Parameters.AddWithValue("@Id", id.ToString());
+                        querysql.ExecuteNonQuery();
+                        DBConnect.db.Close();
 
-                    MessageBox.Show("Apagados com sucesso!!!");
-
-
-
+                        NewcConnection = new DBConnect();
+                        NewcConnection.dbConnection();
+                        MySqlCommand querysql1 = new MySqlCommand(" Delete from distrito where id_distrito =@Id", DBConnect.db);
+                        querysql1.Parameters.AddWithValue("@Id", id.ToString());
+                        querysql1.ExecuteNonQuery();
+                        DBConnect.db.Close();
+                        MessageBox.Show("Apagados com sucesso!!!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Operação anulada!!!");
+                    }
                 }
                 else
                 {
                     MessageBox.Show("Operação anulada!!!");
                 }
             }
-            fillgrid();
+            fillgridDis();
         }
 
         private void textBoxDis_TextChanged(object sender, EventArgs e)
@@ -207,13 +275,34 @@ namespace WpfNutWatch
             {
                 buttonDel.Visible = false;
                 buttonEdit.Visible = false;
+                buttonIns.Visible = false;
+                if (id != -1)
+                {
+                    buttonCancel.Visible = true;
+                }
             }
 
             if (textBoxDis.TextLength > 0)
             {
-                buttonIns.Visible = true;
-            
+
+                if (id != -1)
+                {
+                    buttonDel.Visible = true;
+                    buttonEdit.Visible = true;
+                    buttonCancel.Visible = true;
+                    buttonIns.Visible = false;
+                }
+                else
+                {
+                    buttonIns.Visible = true;
+                }
             }
+
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            fillgridDis();
         }
     }
 }

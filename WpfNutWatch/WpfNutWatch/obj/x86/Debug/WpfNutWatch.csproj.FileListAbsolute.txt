@@ -28,3 +28,5 @@ C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Debug\WpfNutW
 C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Debug\WpfNutWatch.Concelho.resources
 C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Debug\WpfNutWatch.Deficiencia.resources
 C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Debug\WpfNutWatch.QuestionSet.resources
+C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Debug\WpfNutWatch.Especie_Defeciencia.resources
+C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Debug\WpfNutWatch.Questionario.resources

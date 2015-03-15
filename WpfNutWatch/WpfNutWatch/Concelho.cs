@@ -18,7 +18,7 @@ namespace WpfNutWatch
         {
             InitializeComponent();
             fillcombo();
-            fillgrid();
+            fillgridConc();
         }
 
         public void fillcombo()
@@ -44,15 +44,16 @@ namespace WpfNutWatch
             }
 
             DBConnect.db.Close();
+            comboBox1.SelectedIndex = 0;
         }
 
-
-        private void fillgrid()
+        private void fillgridConc()
         {
-
-            //buttonDel.Visible = false;
-            //buttonEdit.Visible = false;
-            //buttonIns.Visible = false;
+            id = -1;
+            buttonDel.Visible = false;
+            buttonEdit.Visible = false;
+            buttonIns.Visible = false;
+            buttonCancel.Visible = false;
             DBConnect NewcConnection = new DBConnect();
             NewcConnection.dbConnection();
             MySqlCommand querysql = new MySqlCommand("Select id_concelho, iddistrito_fk, nome_dist, nome_conc From concelho, distrito where iddistrito_fk = id_distrito", DBConnect.db);
@@ -71,6 +72,8 @@ namespace WpfNutWatch
                 dataGridView1.Columns[2].HeaderText = "Distrito";
                 dataGridView1.Columns[3].HeaderText = "Concelho";
                 dados.Update(tabela);
+                dataGridView1.AutoResizeColumns();
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
             catch (Exception ex)
             {
@@ -88,9 +91,8 @@ namespace WpfNutWatch
             {
                 try
                 {
-                  //  buttonDel.Visible = true;
-                  //  buttonEdit.Visible = true;
-
+                    buttonDel.Visible = true;
+                    buttonEdit.Visible = true;
                     id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_concelho"].Value.ToString());
                     DBConnect NewcConnection = new DBConnect();
                     NewcConnection.dbConnection();
@@ -107,17 +109,226 @@ namespace WpfNutWatch
                 }
                 catch
                 {
-                   // buttonDel.Visible = false;
-                   // buttonEdit.Visible = false;
-                   // buttonIns.Visible = false;
+                    buttonDel.Visible = false;
+                    buttonEdit.Visible = false;
+                    buttonIns.Visible = false;
                     textBoxConc.Clear();
+                    id = -1;
                     MessageBox.Show("Selecione uma celula valida");
                 }
             }
         }
 
+        private void buttonIns_Click(object sender, EventArgs e)
+        {
+            string selectedItem = comboBox1.Items[comboBox1.SelectedIndex].ToString();
+            string[] getid_dist = selectedItem.Split(' ');
+            if (comboBox1.SelectedIndex != 0)
+            {
+
+                DBConnect NewcConnection = new DBConnect();
+                NewcConnection.dbConnection();
+                MySqlCommand verifica = new MySqlCommand("SELECT * FROM concelho WHERE nome_conc LIKE @Concelho", DBConnect.db);
+
+                verifica.Parameters.AddWithValue("@Concelho", this.textBoxConc.Text);
+                MySqlDataReader read = verifica.ExecuteReader();
+                int count = 0;
+                while (read.Read())
+                {
+                    count = count + 1;
+                }
+                DBConnect.db.Close();
+            
+                DialogResult dlg = MessageBox.Show("Confirma a inserção do Concelho " + this.textBoxConc.Text + " do Distrito "+getid_dist[2]+"?", "MessageBox Title", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dlg == DialogResult.Yes)
+                {
+                    if (count == 0)
+                    {
+                        NewcConnection = new DBConnect();
+                        NewcConnection.dbConnection();
+                        MySqlCommand querysql = new MySqlCommand("INSERT INTO concelho (iddistrito_fk, nome_conc) Values ('" + getid_dist[0] + "','" + this.textBoxConc.Text + "')", DBConnect.db);
+                        querysql.ExecuteNonQuery();
+                        MessageBox.Show("Sucesso!!");
+                    }
+                    else
+                    {
+                        NewcConnection = new DBConnect();
+                        NewcConnection.dbConnection();
+                        MySqlCommand verifica1 = new MySqlCommand("SELECT * FROM concelho WHERE iddistrito_fk = @id_distrito", DBConnect.db);
+                        verifica1.Parameters.AddWithValue("@id_distrito", getid_dist[0]);
+                        MySqlDataReader read1 = verifica1.ExecuteReader();
+                        int count1 = 0;
+                        while (read1.Read())
+                        {
+                            count1 = count1 + 1;
+                        }
+
+                        DBConnect.db.Close();
+                        if (count1 == 0)
+                        {
+                            NewcConnection = new DBConnect();
+                            NewcConnection.dbConnection();
+                            MySqlCommand querysql = new MySqlCommand("INSERT INTO concelho (iddistrito_fk, nome_conc) Values ('" + getid_dist[0] + "','" + this.textBoxConc.Text + "')", DBConnect.db);
+                            querysql.ExecuteNonQuery();
+                            MessageBox.Show("Sucesso!!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Concelho já existe!!");
+                        }
+                    }
+                }
+                DBConnect.db.Close();
+                fillgridConc();
+            }
+            else
+            {
+                MessageBox.Show("Selecione um Distrito");
+            }
+        }
+
+        private void textBoxConc_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxConc.TextLength == 0)
+            {
+                buttonDel.Visible = false;
+                buttonEdit.Visible = false;
+                buttonIns.Visible = false;
+                if (id != -1)
+                {
+                    buttonCancel.Visible = true;
+                }
+            }
+
+            if (textBoxConc.TextLength > 0)
+            {
+
+                if (id != -1)
+                {
+                    buttonDel.Visible = true;
+                    buttonEdit.Visible = true;
+                    buttonCancel.Visible = true;
+                    buttonIns.Visible = false;
+                }
+                else
+                {
+                    buttonIns.Visible = true;
+                }
+            }
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            fillgridConc();
+        }
+
+        private void buttonSair_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void buttonDel_Click(object sender, EventArgs e)
+        {
+               try
+                {
+                    DialogResult dlg = MessageBox.Show("Quer apagar o Concelho " + this.textBoxConc.Text + "?", "MessageBox Title", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dlg == DialogResult.Yes)
+                    {
+                        DialogResult dlg2 = MessageBox.Show("Tem a certeza que quer apagar o Concelho " + this.textBoxConc.Text + " ?", "MessageBox Title", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (dlg2 == DialogResult.Yes)
+                        {
+                            DBConnect NewcConnection = new DBConnect();
+                            NewcConnection.dbConnection();
+                            MySqlCommand querysql = new MySqlCommand(" Delete from concelho where id_concelho =@Id", DBConnect.db);
+                            querysql.Parameters.AddWithValue("@Id", id.ToString());
+                            querysql.ExecuteNonQuery();
+                            MessageBox.Show("Apagado com sucesso!!");
+                            DBConnect.db.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Operação anulada!!!");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Operação anulada!!!");
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Ocorreu um erro!!");
+                } 
+             
+            fillgridConc();
+        }
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            string selectedItem = comboBox1.Items[comboBox1.SelectedIndex].ToString();
+            string[] getid_dist = selectedItem.Split(' ');
+            if (comboBox1.SelectedIndex != 0)
+            {
+
+                DBConnect NewcConnection = new DBConnect();
+                NewcConnection.dbConnection();
+                MySqlCommand verifica = new MySqlCommand("SELECT * FROM concelho WHERE nome_conc LIKE @Concelho", DBConnect.db);
+
+                verifica.Parameters.AddWithValue("@Concelho", this.textBoxConc.Text);
+                MySqlDataReader read = verifica.ExecuteReader();
+                int count = 0;
+                while (read.Read())
+                {
+                    count = count + 1;
+                }
+                DBConnect.db.Close();
 
 
+                if (count == 0)
+                {
+                    NewcConnection = new DBConnect();
+                    NewcConnection.dbConnection();
+                    //MySqlCommand querysql = new MySqlCommand("INSERT INTO concelho (iddistrito_fk, nome_conc) Values ('" + getid_dist[0] + "','" + this.textBoxConc.Text + "')", DBConnect.db);
+                    MySqlCommand querysql = new MySqlCommand(" UPDATE concelho set iddistrito_fk = @Distrito, nome_conc = @Concelho where id_concelho =@Id", DBConnect.db);
+                    querysql.Parameters.AddWithValue("@Id", id.ToString());
+                    querysql.Parameters.AddWithValue("@Distrito", getid_dist[0]);
+                    querysql.Parameters.AddWithValue("@Concelho", this.textBoxConc.Text); 
+                    querysql.ExecuteNonQuery();
+                    MessageBox.Show("Sucesso!!");
+                }
+                else
+                {
+                    NewcConnection = new DBConnect();
+                    NewcConnection.dbConnection();
+                    MySqlCommand verifica1 = new MySqlCommand("SELECT * FROM concelho WHERE iddistrito_fk = @id_distrito", DBConnect.db);
+                    verifica1.Parameters.AddWithValue("@id_distrito", getid_dist[0]);
+                    MySqlDataReader read1 = verifica1.ExecuteReader();
+                    int count1 = 0;
+                    while (read1.Read())
+                    {
+                        count1 = count1 + 1;
+                    }
 
+                    DBConnect.db.Close();
+                    if (count1 == 0)
+                    {
+                        NewcConnection = new DBConnect();
+                        NewcConnection.dbConnection();
+                        MySqlCommand querysql = new MySqlCommand(" UPDATE concelho set iddistrito_fk = @Distrito, nome_conc = @Concelho where id_concelho =@Id", DBConnect.db);
+                        querysql.Parameters.AddWithValue("@Id", id.ToString());
+                        querysql.Parameters.AddWithValue("@Distrito", getid_dist[0]);
+                        querysql.Parameters.AddWithValue("@Concelho", this.textBoxConc.Text); 
+                        querysql.ExecuteNonQuery();
+                        MessageBox.Show("Sucesso!!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Concelho já existe!!");
+                    }
+                }
+                DBConnect.db.Close();
+                fillgridConc();
+            }
+        }
     }
 }

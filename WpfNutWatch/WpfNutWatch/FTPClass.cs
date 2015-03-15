@@ -30,14 +30,14 @@ namespace WpfNutWatch
 
         }
 
-        public String getfolderfile(String nomeDef, String especie)
+        public String getfolderfile(String Texto1, String Texto2)
         {
             string filename = "";
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
 
             dlg.DefaultExt = ".jpg";
 
-            dlg.Title = "Insira uma imagem para a folha do(a) " + especie + " com deficiencia de " + nomeDef;
+            dlg.Title = "Insira uma imagem "+ Texto1 +" " + Texto2;
 
             dlg.Filter = "All Images| *.BMP;*.DIB;*.RLE;*.JPG;*.JPEG;*.JPE;*.JFIF;*.GIF;*.TIF;*.TIFF;*.PNG";
 

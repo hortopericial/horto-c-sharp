@@ -64,11 +64,23 @@
     <Compile Include="Deficiencia.Designer.cs">
       <DependentUpon>Deficiencia.cs</DependentUpon>
     </Compile>
+    <Compile Include="Especie_Defeciencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Especie_Defeciencia.Designer.cs">
+      <DependentUpon>Especie_Defeciencia.cs</DependentUpon>
+    </Compile>
     <Compile Include="PreDiagnostico.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PreDiagnostico.Designer.cs">
       <DependentUpon>PreDiagnostico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Questionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Questionario.Designer.cs">
+      <DependentUpon>Questionario.cs</DependentUpon>
     </Compile>
     <Compile Include="QuestionSet.cs">
       <SubType>Form</SubType>
@@ -138,6 +150,9 @@
     <EmbeddedResource Include="Distrito.resx">
       <DependentUpon>Distrito.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Especie_Defeciencia.resx">
+      <DependentUpon>Especie_Defeciencia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNoti.resx">
       <DependentUpon>FormNoti.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,6 +163,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Questionario.resx">
+      <DependentUpon>Questionario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="QuestionSet.resx">
       <DependentUpon>QuestionSet.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,6 +174,9 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="default_image.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

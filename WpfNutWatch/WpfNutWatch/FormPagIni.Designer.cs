@@ -32,15 +32,12 @@
             this.textBoxPagIni = new System.Windows.Forms.TextBox();
             this.buttonSair = new System.Windows.Forms.Button();
             this.buttonInserir = new System.Windows.Forms.Button();
-            this.buttonEditar = new System.Windows.Forms.Button();
-            this.buttonApagar = new System.Windows.Forms.Button();
             this.textBoxFich = new System.Windows.Forms.TextBox();
             this.buttonFicheiro = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Texto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Imagem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBoxTitulo = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -48,15 +45,15 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 40);
+            this.label1.Location = new System.Drawing.Point(12, 97);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 13);
+            this.label1.Size = new System.Drawing.Size(62, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Inserir Texto:";
+            this.label1.Text = "Mensagem:";
             // 
             // textBoxPagIni
             // 
-            this.textBoxPagIni.Location = new System.Drawing.Point(86, 40);
+            this.textBoxPagIni.Location = new System.Drawing.Point(86, 97);
             this.textBoxPagIni.MaxLength = 1000;
             this.textBoxPagIni.Multiline = true;
             this.textBoxPagIni.Name = "textBoxPagIni";
@@ -82,28 +79,11 @@
             this.buttonInserir.TabIndex = 3;
             this.buttonInserir.Text = "Inserir";
             this.buttonInserir.UseVisualStyleBackColor = true;
-            // 
-            // buttonEditar
-            // 
-            this.buttonEditar.Location = new System.Drawing.Point(96, 440);
-            this.buttonEditar.Name = "buttonEditar";
-            this.buttonEditar.Size = new System.Drawing.Size(75, 23);
-            this.buttonEditar.TabIndex = 4;
-            this.buttonEditar.Text = "Editar";
-            this.buttonEditar.UseVisualStyleBackColor = true;
-            // 
-            // buttonApagar
-            // 
-            this.buttonApagar.Location = new System.Drawing.Point(177, 440);
-            this.buttonApagar.Name = "buttonApagar";
-            this.buttonApagar.Size = new System.Drawing.Size(75, 23);
-            this.buttonApagar.TabIndex = 5;
-            this.buttonApagar.Text = "Apagar";
-            this.buttonApagar.UseVisualStyleBackColor = true;
+            this.buttonInserir.Click += new System.EventHandler(this.buttonInserir_Click);
             // 
             // textBoxFich
             // 
-            this.textBoxFich.Location = new System.Drawing.Point(219, 188);
+            this.textBoxFich.Location = new System.Drawing.Point(219, 224);
             this.textBoxFich.Name = "textBoxFich";
             this.textBoxFich.ReadOnly = true;
             this.textBoxFich.Size = new System.Drawing.Size(614, 20);
@@ -111,23 +91,22 @@
             // 
             // buttonFicheiro
             // 
-            this.buttonFicheiro.Location = new System.Drawing.Point(15, 185);
+            this.buttonFicheiro.Location = new System.Drawing.Point(15, 221);
             this.buttonFicheiro.Name = "buttonFicheiro";
             this.buttonFicheiro.Size = new System.Drawing.Size(178, 23);
             this.buttonFicheiro.TabIndex = 7;
-            this.buttonFicheiro.Text = "Selecionar Ficheiro";
+            this.buttonFicheiro.Text = "Selecionar Imagem";
             this.buttonFicheiro.UseVisualStyleBackColor = true;
             this.buttonFicheiro.Click += new System.EventHandler(this.buttonFicheiro_Click);
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.Texto,
-            this.Imagem});
             this.dataGridView1.Location = new System.Drawing.Point(15, 252);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(562, 182);
             this.dataGridView1.TabIndex = 8;
             // 
@@ -140,33 +119,34 @@
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
-            // ID
+            // textBoxTitulo
             // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.Visible = false;
+            this.textBoxTitulo.Location = new System.Drawing.Point(137, 57);
+            this.textBoxTitulo.MaxLength = 100;
+            this.textBoxTitulo.Name = "textBoxTitulo";
+            this.textBoxTitulo.Size = new System.Drawing.Size(696, 20);
+            this.textBoxTitulo.TabIndex = 10;
             // 
-            // Texto
+            // label2
             // 
-            this.Texto.HeaderText = "Texto";
-            this.Texto.Name = "Texto";
-            // 
-            // Imagem
-            // 
-            this.Imagem.HeaderText = "Imagem";
-            this.Imagem.Name = "Imagem";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(15, 57);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(108, 13);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Título da Mensagem:";
             // 
             // FormPagIni
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(854, 472);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBoxTitulo);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.buttonFicheiro);
             this.Controls.Add(this.textBoxFich);
-            this.Controls.Add(this.buttonApagar);
-            this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.buttonInserir);
             this.Controls.Add(this.buttonSair);
             this.Controls.Add(this.textBoxPagIni);
@@ -189,14 +169,11 @@
         private System.Windows.Forms.TextBox textBoxPagIni;
         private System.Windows.Forms.Button buttonSair;
         private System.Windows.Forms.Button buttonInserir;
-        private System.Windows.Forms.Button buttonEditar;
-        private System.Windows.Forms.Button buttonApagar;
         private System.Windows.Forms.TextBox textBoxFich;
         private System.Windows.Forms.Button buttonFicheiro;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Texto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Imagem;
+        private System.Windows.Forms.TextBox textBoxTitulo;
+        private System.Windows.Forms.Label label2;
     }
 }

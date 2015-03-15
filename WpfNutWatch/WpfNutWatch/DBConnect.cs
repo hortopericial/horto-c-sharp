@@ -21,11 +21,9 @@ namespace WpfNutWatch
             //server = "ltictrab.ddns.net";
             //port = "3306";
             //port = "3307";
-        
             //uid = "user";
             //connectionString = "Server=" + server + ";" + "Port=" + port + ";" + "Database=" +
-            //database + ";" + "Uid=" + uid + ";" + "Pwd=" + password + ";";
-
+            //database + ";" + "Uid=" + uid + ";" + "Pwd=" + password + ";
             server = "localhost";
             database = "hortopericial";
             uid = "root";           

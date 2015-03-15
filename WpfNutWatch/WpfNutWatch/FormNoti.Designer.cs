@@ -32,7 +32,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxNot = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -42,10 +42,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Noticia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fonte = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Link = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -86,15 +82,15 @@
             this.button1.Text = "Selecionar Imagem";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // textBoxNot
             // 
-            this.textBox1.Location = new System.Drawing.Point(98, 41);
-            this.textBox1.MaxLength = 1000;
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(734, 127);
-            this.textBox1.TabIndex = 4;
+            this.textBoxNot.Location = new System.Drawing.Point(98, 41);
+            this.textBoxNot.MaxLength = 1000;
+            this.textBoxNot.Multiline = true;
+            this.textBoxNot.Name = "textBoxNot";
+            this.textBoxNot.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxNot.Size = new System.Drawing.Size(734, 127);
+            this.textBoxNot.TabIndex = 4;
             // 
             // textBox2
             // 
@@ -137,6 +133,7 @@
             this.button2.TabIndex = 9;
             this.button2.Text = "Inserir";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -167,37 +164,14 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.Noticia,
-            this.Fonte,
-            this.Link});
             this.dataGridView1.Location = new System.Drawing.Point(16, 268);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(555, 166);
             this.dataGridView1.TabIndex = 13;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.Visible = false;
-            // 
-            // Noticia
-            // 
-            this.Noticia.HeaderText = "Noticia";
-            this.Noticia.Name = "Noticia";
-            // 
-            // Fonte
-            // 
-            this.Fonte.HeaderText = "Fonte";
-            this.Fonte.Name = "Fonte";
-            // 
-            // Link
-            // 
-            this.Link.HeaderText = "Link";
-            this.Link.Name = "Link";
             // 
             // FormNoti
             // 
@@ -213,7 +187,7 @@
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxNot);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -236,7 +210,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxNot;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
@@ -246,9 +220,5 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Noticia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fonte;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Link;
     }
 }
