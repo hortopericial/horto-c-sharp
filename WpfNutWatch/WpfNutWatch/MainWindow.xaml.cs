@@ -104,10 +104,10 @@ namespace WpfNutWatch
             formnoti.ShowDialog();
         }
 
-        private void button3Def_Click(object sender, RoutedEventArgs e)
+        private void button3DefEsp_Click(object sender, RoutedEventArgs e)
         {
-            Deficiencia formDef = new Deficiencia();
-            formDef.ShowDialog();
+            Especie_Defeciencia formDefEsp = new Especie_Defeciencia();
+            formDefEsp.ShowDialog();
         }
         //question set
         private void button3_Click(object sender, RoutedEventArgs e)

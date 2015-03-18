@@ -64,6 +64,12 @@
     <Compile Include="Deficiencia.Designer.cs">
       <DependentUpon>Deficiencia.cs</DependentUpon>
     </Compile>
+    <Compile Include="Especies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Especies.Designer.cs">
+      <DependentUpon>Especies.cs</DependentUpon>
+    </Compile>
     <Compile Include="Especie_Defeciencia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +156,9 @@
     <EmbeddedResource Include="Distrito.resx">
       <DependentUpon>Distrito.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Especies.resx">
+      <DependentUpon>Especies.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Especie_Defeciencia.resx">
       <DependentUpon>Especie_Defeciencia.cs</DependentUpon>
     </EmbeddedResource>
@@ -158,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPagIni.resx">
       <DependentUpon>FormPagIni.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PreDiagnostico.resx">
+      <DependentUpon>PreDiagnostico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

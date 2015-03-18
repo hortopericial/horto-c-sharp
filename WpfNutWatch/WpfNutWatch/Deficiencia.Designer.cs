@@ -44,7 +44,7 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(32, 220);
+            this.dataGridView1.Location = new System.Drawing.Point(32, 174);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(240, 150);
@@ -53,7 +53,7 @@
             // 
             // buttonIns
             // 
-            this.buttonIns.Location = new System.Drawing.Point(32, 119);
+            this.buttonIns.Location = new System.Drawing.Point(32, 73);
             this.buttonIns.Name = "buttonIns";
             this.buttonIns.Size = new System.Drawing.Size(75, 37);
             this.buttonIns.TabIndex = 1;
@@ -63,7 +63,7 @@
             // 
             // buttonEdit
             // 
-            this.buttonEdit.Location = new System.Drawing.Point(113, 119);
+            this.buttonEdit.Location = new System.Drawing.Point(113, 73);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(75, 37);
             this.buttonEdit.TabIndex = 2;
@@ -73,7 +73,7 @@
             // 
             // buttonDel
             // 
-            this.buttonDel.Location = new System.Drawing.Point(194, 119);
+            this.buttonDel.Location = new System.Drawing.Point(194, 73);
             this.buttonDel.Name = "buttonDel";
             this.buttonDel.Size = new System.Drawing.Size(75, 37);
             this.buttonDel.TabIndex = 3;
@@ -83,7 +83,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(115, 391);
+            this.button4.Location = new System.Drawing.Point(115, 345);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 4;
@@ -94,7 +94,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 79);
+            this.label1.Location = new System.Drawing.Point(34, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 13);
             this.label1.TabIndex = 5;
@@ -102,7 +102,7 @@
             // 
             // textBoxDef
             // 
-            this.textBoxDef.Location = new System.Drawing.Point(103, 76);
+            this.textBoxDef.Location = new System.Drawing.Point(103, 30);
             this.textBoxDef.Name = "textBoxDef";
             this.textBoxDef.Size = new System.Drawing.Size(169, 20);
             this.textBoxDef.TabIndex = 6;
@@ -110,7 +110,7 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(77, 173);
+            this.buttonCancel.Location = new System.Drawing.Point(77, 127);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(133, 23);
             this.buttonCancel.TabIndex = 7;
@@ -122,7 +122,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(299, 450);
+            this.ClientSize = new System.Drawing.Size(299, 396);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.textBoxDef);
             this.Controls.Add(this.label1);

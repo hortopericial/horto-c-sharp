@@ -9,17 +9,11 @@ using System.Windows.Forms;
 
 namespace WpfNutWatch
 {
-    public partial class Especie_Defeciencia : Form
+    public partial class Especies : Form
     {
-        public Especie_Defeciencia()
+        public Especies()
         {
             InitializeComponent();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Deficiencia formDef = new Deficiencia();
-            formDef.ShowDialog();
         }
     }
 }
