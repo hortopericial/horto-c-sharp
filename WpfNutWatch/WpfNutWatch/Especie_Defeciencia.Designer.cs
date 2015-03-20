@@ -69,7 +69,7 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(183, 107);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(236, 20);
+            this.textBox2.Size = new System.Drawing.Size(156, 20);
             this.textBox2.TabIndex = 3;
             // 
             // dataGridView1
@@ -174,7 +174,7 @@
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(139, 23);
             this.button8.TabIndex = 17;
-            this.button8.Text = "Sair";
+            this.button8.Text = "button8";
             this.button8.UseVisualStyleBackColor = true;
             // 
             // Especie_Defeciencia
