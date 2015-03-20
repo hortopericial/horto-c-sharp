@@ -31,3 +31,5 @@ C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Debug\WpfNutW
 C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Debug\WpfNutWatch.Especie_Defeciencia.resources
 C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Debug\WpfNutWatch.Questionario.resources
 C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Debug\WpfNutWatch.Especies.resources
+C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Debug\WpfNutWatch.csprojResolveAssemblyReference.cache
+C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Debug\WpfNutWatch.PreDiagnostico.resources
