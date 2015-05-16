@@ -43,7 +43,7 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(82, 131);
+            this.buttonCancel.Location = new System.Drawing.Point(81, 131);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(186, 23);
             this.buttonCancel.TabIndex = 19;
@@ -87,7 +87,7 @@
             // 
             // buttonSair
             // 
-            this.buttonSair.Location = new System.Drawing.Point(132, 382);
+            this.buttonSair.Location = new System.Drawing.Point(141, 379);
             this.buttonSair.Name = "buttonSair";
             this.buttonSair.Size = new System.Drawing.Size(75, 23);
             this.buttonSair.TabIndex = 14;
@@ -106,7 +106,7 @@
             // 
             // buttonEdit
             // 
-            this.buttonEdit.Location = new System.Drawing.Point(132, 83);
+            this.buttonEdit.Location = new System.Drawing.Point(141, 83);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(75, 42);
             this.buttonEdit.TabIndex = 12;
@@ -139,7 +139,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(347, 414);
+            this.ClientSize = new System.Drawing.Size(350, 414);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.textBoxPerg);
             this.Controls.Add(this.comboBox1);
@@ -150,6 +150,9 @@
             this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.buttonIns);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Questionario";
             this.Text = "Questionario";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

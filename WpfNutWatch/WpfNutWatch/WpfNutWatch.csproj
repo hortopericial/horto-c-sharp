@@ -58,6 +58,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Contactos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contactos.Designer.cs">
+      <DependentUpon>Contactos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Deficiencia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,7 @@
     <Compile Include="QuestionSet.Designer.cs">
       <DependentUpon>QuestionSet.cs</DependentUpon>
     </Compile>
+    <Compile Include="RegularExpression.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -149,6 +156,9 @@
     </Compile>
     <EmbeddedResource Include="Concelho.resx">
       <DependentUpon>Concelho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contactos.resx">
+      <DependentUpon>Contactos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Deficiencia.resx">
       <DependentUpon>Deficiencia.cs</DependentUpon>

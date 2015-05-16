@@ -21,5 +21,16 @@ namespace WpfNutWatch
             Deficiencia formDef = new Deficiencia();
             formDef.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Especies esp = new Especies();
+            esp.ShowDialog();
+        }
+
+        private void buttonSair_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

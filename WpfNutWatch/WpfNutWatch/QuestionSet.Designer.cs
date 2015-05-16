@@ -41,7 +41,7 @@
             // 
             // buttonSair
             // 
-            this.buttonSair.Location = new System.Drawing.Point(165, 386);
+            this.buttonSair.Location = new System.Drawing.Point(147, 384);
             this.buttonSair.Name = "buttonSair";
             this.buttonSair.Size = new System.Drawing.Size(75, 23);
             this.buttonSair.TabIndex = 0;
@@ -51,7 +51,7 @@
             // 
             // buttonIns
             // 
-            this.buttonIns.Location = new System.Drawing.Point(66, 100);
+            this.buttonIns.Location = new System.Drawing.Point(30, 100);
             this.buttonIns.Name = "buttonIns";
             this.buttonIns.Size = new System.Drawing.Size(75, 49);
             this.buttonIns.TabIndex = 1;
@@ -61,7 +61,7 @@
             // 
             // buttonEdit
             // 
-            this.buttonEdit.Location = new System.Drawing.Point(156, 100);
+            this.buttonEdit.Location = new System.Drawing.Point(147, 100);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(75, 49);
             this.buttonEdit.TabIndex = 2;
@@ -71,7 +71,7 @@
             // 
             // buttonDel
             // 
-            this.buttonDel.Location = new System.Drawing.Point(246, 100);
+            this.buttonDel.Location = new System.Drawing.Point(256, 100);
             this.buttonDel.Name = "buttonDel";
             this.buttonDel.Size = new System.Drawing.Size(75, 49);
             this.buttonDel.TabIndex = 3;
@@ -84,7 +84,7 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(30, 200);
+            this.dataGridView1.Location = new System.Drawing.Point(30, 212);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(301, 150);
@@ -93,9 +93,9 @@
             // 
             // textBoxQS
             // 
-            this.textBoxQS.Location = new System.Drawing.Point(165, 41);
+            this.textBoxQS.Location = new System.Drawing.Point(147, 41);
             this.textBoxQS.Name = "textBoxQS";
-            this.textBoxQS.Size = new System.Drawing.Size(166, 20);
+            this.textBoxQS.Size = new System.Drawing.Size(184, 20);
             this.textBoxQS.TabIndex = 5;
             this.textBoxQS.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -104,13 +104,13 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(27, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 13);
+            this.label1.Size = new System.Drawing.Size(117, 13);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Nome do Question Set";
+            this.label1.Text = "Nome do Question Set:";
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(132, 171);
+            this.buttonCancel.Location = new System.Drawing.Point(123, 171);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(117, 23);
             this.buttonCancel.TabIndex = 7;
@@ -122,7 +122,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(400, 463);
+            this.ClientSize = new System.Drawing.Size(365, 431);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxQS);
@@ -131,6 +131,9 @@
             this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.buttonIns);
             this.Controls.Add(this.buttonSair);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "QuestionSet";
             this.Text = "QuestionSet";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

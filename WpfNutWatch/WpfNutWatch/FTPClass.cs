@@ -54,6 +54,7 @@ namespace WpfNutWatch
         public void criar_diretoria(String ftp, String username, String password, String nome_pasta)
         {
             //define os requesitos para se conectar com o servidor
+            MessageBox.Show(ftp + " "+ nome_pasta);
             try
             {
                 MessageBox.Show(nome_pasta);
@@ -63,8 +64,49 @@ namespace WpfNutWatch
                 ftpRequest.Credentials = new NetworkCredential(username, password);
                 ftpRequest.Method = WebRequestMethods.Ftp.MakeDirectory;
                 FtpWebResponse CreateForderResponse = (FtpWebResponse)ftpRequest.GetResponse();
-                MessageBox.Show(nome_pasta);
+                MessageBox.Show(nome_pasta);              
 
+            }
+            catch (WebException webex)
+            {
+                MessageBox.Show("Não é possivel criar pasta");
+                MessageBox.Show(webex.Message);
+            }
+        }
+
+        public bool DoesFtpDirectoryExist(String ftp, String username, String password, String dirPath)
+        {
+            try
+            {
+                MessageBox.Show(ftp);
+                FtpWebRequest request = (FtpWebRequest)WebRequest.Create(new Uri(ftp + dirPath));
+                MessageBox.Show(request.ToString());
+                request.Proxy = null;
+                request.UseBinary = true;
+                request.Credentials = new NetworkCredential(username, password);
+                request.Method = WebRequestMethods.Ftp.ListDirectory;
+                FtpWebResponse response = (FtpWebResponse)request.GetResponse();
+                return true;
+            }
+            catch (WebException ex)
+            {
+                return false;
+            }
+        }
+
+        public void remove_diretoria(String ftp, String username, String password, String nome_pasta)
+        {
+            //define os requesitos para se conectar com o servidor
+            try
+            {
+                MessageBox.Show(nome_pasta);
+                FtpWebRequest ftpRequest = (FtpWebRequest)FtpWebRequest.Create(new Uri(ftp + nome_pasta));
+                ftpRequest.Proxy = null;
+                ftpRequest.UseBinary = true;
+                ftpRequest.Credentials = new NetworkCredential(username, password);
+                ftpRequest.Method = WebRequestMethods.Ftp.RemoveDirectory;           
+                FtpWebResponse CreateForderResponse = (FtpWebResponse)ftpRequest.GetResponse();
+                MessageBox.Show(nome_pasta);
             }
             catch (WebException webex)
             {
@@ -77,7 +119,7 @@ namespace WpfNutWatch
         {
             try
             {
-                FtpWebRequest ftpRequest = (FtpWebRequest)FtpWebRequest.Create(new Uri(ftp + nome_pasta + "/" + path));
+                FtpWebRequest ftpRequest = (FtpWebRequest)FtpWebRequest.Create(new Uri(ftp + nome_pasta  + path));
                 ftpRequest.Method = WebRequestMethods.Ftp.UploadFile;
                 ftpRequest.Proxy = null;
                 ftpRequest.UseBinary = true;

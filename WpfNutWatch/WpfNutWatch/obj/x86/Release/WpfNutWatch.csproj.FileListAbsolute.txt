@@ -15,3 +15,8 @@ C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Release\WpfNu
 C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Release\WpfNutWatch.csproj.GenerateResource.Cache
 C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Release\WpfNutWatch.exe
 C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Release\WpfNutWatch.pdb
+C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Release\WpfNutWatch.Especies.resources
+C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Release\WpfNutWatch.Especie_Defeciencia.resources
+C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Release\WpfNutWatch.PreDiagnostico.resources
+C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Release\WpfNutWatch.Questionario.resources
+C:\Dev\Hortopericial\horto-c-sharp\WpfNutWatch\WpfNutWatch\obj\x86\Release\WpfNutWatch.csprojResolveAssemblyReference.cache

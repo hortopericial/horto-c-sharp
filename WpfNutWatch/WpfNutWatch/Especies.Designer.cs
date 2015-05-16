@@ -30,65 +30,66 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.buttonIns = new System.Windows.Forms.Button();
+            this.buttonEdit = new System.Windows.Forms.Button();
+            this.buttonDel = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.buttonSair = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 39);
+            this.label1.Location = new System.Drawing.Point(20, 39);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(76, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.label1.Text = "Nome Comum:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(40, 75);
+            this.label2.Location = new System.Drawing.Point(20, 82);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(84, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "label2";
+            this.label2.Text = "Nome Cientifico:";
             // 
-            // button1
+            // buttonIns
             // 
-            this.button1.Location = new System.Drawing.Point(23, 128);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonIns.Location = new System.Drawing.Point(23, 128);
+            this.buttonIns.Name = "buttonIns";
+            this.buttonIns.Size = new System.Drawing.Size(75, 35);
+            this.buttonIns.TabIndex = 2;
+            this.buttonIns.Text = "Inserir";
+            this.buttonIns.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // buttonEdit
             // 
-            this.button2.Location = new System.Drawing.Point(113, 128);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonEdit.Location = new System.Drawing.Point(113, 128);
+            this.buttonEdit.Name = "buttonEdit";
+            this.buttonEdit.Size = new System.Drawing.Size(75, 35);
+            this.buttonEdit.TabIndex = 3;
+            this.buttonEdit.Text = "Gravar Alterações";
+            this.buttonEdit.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // buttonDel
             // 
-            this.button3.Location = new System.Drawing.Point(204, 128);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonDel.Location = new System.Drawing.Point(204, 128);
+            this.buttonDel.Name = "buttonDel";
+            this.buttonDel.Size = new System.Drawing.Size(75, 35);
+            this.buttonDel.TabIndex = 4;
+            this.buttonDel.Text = "Apagar";
+            this.buttonDel.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(107, 32);
+            this.textBox1.Location = new System.Drawing.Point(107, 36);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(172, 20);
             this.textBox1.TabIndex = 5;
@@ -108,39 +109,54 @@
             this.dataGridView1.Size = new System.Drawing.Size(256, 150);
             this.dataGridView1.TabIndex = 7;
             // 
-            // button4
+            // buttonSair
             // 
-            this.button4.Location = new System.Drawing.Point(122, 371);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonSair.Location = new System.Drawing.Point(122, 371);
+            this.buttonSair.Name = "buttonSair";
+            this.buttonSair.Size = new System.Drawing.Size(75, 23);
+            this.buttonSair.TabIndex = 8;
+            this.buttonSair.Text = "Sair";
+            this.buttonSair.UseVisualStyleBackColor = true;
+            this.buttonSair.Click += new System.EventHandler(this.buttonSair_Click);
             // 
-            // button5
+            // buttonCancel
             // 
-            this.button5.Location = new System.Drawing.Point(113, 169);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 9;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.buttonCancel.Location = new System.Drawing.Point(91, 169);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(125, 23);
+            this.buttonCancel.TabIndex = 9;
+            this.buttonCancel.Text = "Cancelar Operação";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(104, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(73, 20);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Espécie";
             // 
             // Especies
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(309, 417);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.buttonCancel);
+            this.Controls.Add(this.buttonSair);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonDel);
+            this.Controls.Add(this.buttonEdit);
+            this.Controls.Add(this.buttonIns);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Especies";
             this.Text = "Especies";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -153,13 +169,14 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonIns;
+        private System.Windows.Forms.Button buttonEdit;
+        private System.Windows.Forms.Button buttonDel;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button buttonSair;
+        private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.Label label3;
     }
 }

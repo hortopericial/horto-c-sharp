@@ -6,31 +6,32 @@
         <TabControl Height="350" HorizontalAlignment="Left" Margin="12,12,0,0" Name="tabControl1" VerticalAlignment="Top" Width="780">
             <TabItem Header="Login" Name="tabItem1">
                 <Grid>
-                    <Button Content="Login" Height="23" HorizontalAlignment="Left" Margin="444,227,0,0" Name="buttonLogin" VerticalAlignment="Top" Width="129" Click="buttonLogin_Click" />
-                    <TextBox Height="23" HorizontalAlignment="Left" Margin="427,87,0,0" Name="textBoxUser" VerticalAlignment="Top" Width="200" />
-                    <TextBox Height="23" HorizontalAlignment="Left" Margin="427,158,0,0" Name="textBoxPwd" VerticalAlignment="Top" Width="200" />
-                    <Label Content="Username:" Height="28" HorizontalAlignment="Left" Margin="343,82,0,0" Name="label1" VerticalAlignment="Top" />
-                    <Label Content="Password:" Height="28" HorizontalAlignment="Left" Margin="343,153,0,0" Name="label2" VerticalAlignment="Top" />
+                    <Button Content="Login" Height="23" HorizontalAlignment="Left" Margin="329,217,0,0" Name="buttonLogin" VerticalAlignment="Top" Width="129" Click="buttonLogin_Click" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="312,77,0,0" Name="textBoxUser" VerticalAlignment="Top" Width="200" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="312,148,0,0" Name="textBoxPwd" VerticalAlignment="Top" Width="200" />
+                    <Label Content="Username:" Height="28" HorizontalAlignment="Left" Margin="228,72,0,0" Name="label1" VerticalAlignment="Top" />
+                    <Label Content="Password:" Height="28" HorizontalAlignment="Left" Margin="228,143,0,0" Name="label2" VerticalAlignment="Top" />
                 </Grid>
             </TabItem>
             <TabItem Header="Menu" Name="tabItem2">
                 <Grid Width="748">
                     <Rectangle Height="300" HorizontalAlignment="Left" Margin="199,6,0,0" Name="rectangle2" Stroke="Black" VerticalAlignment="Top" Width="541" />
-                    <Rectangle Height="157" HorizontalAlignment="Left" Margin="24,149,0,0" Name="rectangle3" Stroke="Black" VerticalAlignment="Top" Width="156" />
-                    <Rectangle Height="125" HorizontalAlignment="Left" Margin="24,18,0,0" Name="rectangle1" Stroke="Black" VerticalAlignment="Top" Width="156" />
-                    <Button Content="Página Inicial" Height="23" HorizontalAlignment="Left" Margin="50,65,0,0" Name="buttonPagIni" VerticalAlignment="Top" Width="100" Click="buttonPagIni_Click" />
-                    <Button Content="Noticias" Height="23" HorizontalAlignment="Left" Margin="51,108,0,0" Name="button1" VerticalAlignment="Top" Width="100" Click="button1_Click" />
-                    <Label Content="Gerir Página Web" Height="28" HorizontalAlignment="Left" Margin="40,26,0,0" Name="label3" VerticalAlignment="Top" Width="120" FontSize="14" />
-                    <Button Content="Distritos" Height="23" HorizontalAlignment="Left" Margin="59,0,0,67" Name="buttonDis" VerticalAlignment="Bottom" Width="75" Click="buttonDis_Click" />
-                    <Button Content="Concelhos" Height="23" HorizontalAlignment="Left" Margin="59,0,0,30" Name="button2" VerticalAlignment="Bottom" Width="75" Click="button2_Click" />
+                    <Rectangle Height="143" HorizontalAlignment="Left" Margin="24,163,0,0" Name="rectangle3" Stroke="Black" VerticalAlignment="Top" Width="156" />
+                    <Rectangle Height="143" HorizontalAlignment="Left" Margin="24,6,0,0" Name="rectangle1" Stroke="Black" VerticalAlignment="Top" Width="156" />
+                    <Button Content="Página Inicial" Height="23" HorizontalAlignment="Left" Margin="48,52,0,0" Name="buttonPagIni" VerticalAlignment="Top" Width="100" Click="buttonPagIni_Click" />
+                    <Button Content="Noticias" Height="23" HorizontalAlignment="Left" Margin="48,81,0,0" Name="button1" VerticalAlignment="Top" Width="100" Click="button1_Click" />
+                    <Label Content="Gerir Página Web" Height="28" HorizontalAlignment="Left" Margin="40,6,0,0" Name="label3" VerticalAlignment="Top" Width="120" FontSize="14" />
+                    <Button Content="Distritos" Height="23" HorizontalAlignment="Left" Margin="59,0,0,72" Name="buttonDis" VerticalAlignment="Bottom" Width="75" Click="buttonDis_Click" />
+                    <Button Content="Concelhos" Height="23" HorizontalAlignment="Left" Margin="59,0,0,43" Name="button2" VerticalAlignment="Bottom" Width="75" Click="button2_Click" />
                     <Button Content="Gerir  Especies e  Defeciencias" Height="23" HorizontalAlignment="Left" Margin="224,0,0,30" Name="button3DefEsp" VerticalAlignment="Bottom" Width="181" Click="button3DefEsp_Click" />
                     <Button Content="Question Set" Height="23" HorizontalAlignment="Left" Margin="224,31,0,0" Name="button3QS" VerticalAlignment="Top" Width="181" Click="button3_Click" />
                     <Button Content="Pre diagnostico" Height="23" HorizontalAlignment="Left" Margin="224,75,0,0" Name="buttonPrDia" VerticalAlignment="Top" Width="181" />
                     <Button Content="Perguntas de Diagnostico" Height="23" HorizontalAlignment="Left" Margin="224,108,0,0" Name="buttonPerDia" VerticalAlignment="Top" Width="181" Click="buttonPerDia_Click" />
                     <Label Content="Gerir Distritos e " FontSize="14" Height="28" HorizontalAlignment="Left" Margin="40,163,0,0" Name="label4" VerticalAlignment="Top" Width="120" />
-                    <Label Content="Concelhos" FontSize="14" Height="28" HorizontalAlignment="Left" Margin="56,185,0,0" Name="label5" VerticalAlignment="Top" Width="78" />
+                    <Label Content="Concelhos" FontSize="14" Height="28" HorizontalAlignment="Left" Margin="56,184,0,0" Name="label5" VerticalAlignment="Top" Width="78" />
                     <Button Content="Button" Height="23" HorizontalAlignment="Left" Margin="224,163,0,0" Name="button3" VerticalAlignment="Top" Width="181" />
                     <Button Content="Button" Height="23" HorizontalAlignment="Left" Margin="606,149,0,0" Name="button4" VerticalAlignment="Top" Width="75" />
+                    <Button Content="Contatos" Height="23" HorizontalAlignment="Left" Margin="48,110,0,0" Name="button5" VerticalAlignment="Top" Width="100" Click="button5_Click" />
                 </Grid>
             </TabItem>
         </TabControl>

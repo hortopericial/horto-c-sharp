@@ -122,7 +122,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(299, 396);
+            this.ClientSize = new System.Drawing.Size(307, 396);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.textBoxDef);
             this.Controls.Add(this.label1);
@@ -131,6 +131,9 @@
             this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.buttonIns);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Deficiencia";
             this.Text = "Deficiencia";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

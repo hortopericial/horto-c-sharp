@@ -15,5 +15,10 @@ namespace WpfNutWatch
         {
             InitializeComponent();
         }
+
+        private void buttonSair_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -149,5 +149,11 @@ namespace WpfNutWatch
                 }
             }           
         }
+
+        private void button5_Click(object sender, RoutedEventArgs e)
+        {
+            Contactos contact = new Contactos();
+            contact.ShowDialog();
+        }
     }
 }
