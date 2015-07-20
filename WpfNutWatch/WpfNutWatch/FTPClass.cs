@@ -13,6 +13,14 @@ namespace WpfNutWatch
     {
         FtpWebResponse ftpResponse;
 
+        /// <summary>
+        /// Apagar_ficheiroes the specified arq.
+        /// </summary>
+        /// <param name="arq">The arq.</param>
+        /// <param name="ftp">The FTP.</param>
+        /// <param name="username">The username.</param>
+        /// <param name="password">The password.</param>
+        /// <param name="nome_pasta">The nome_pasta.</param>
         public void apagar_ficheiro(String arq, String ftp, String username, String password, String nome_pasta)
         {
             try
@@ -30,6 +38,12 @@ namespace WpfNutWatch
 
         }
 
+        /// <summary>
+        /// Getfolderfiles the specified texto1.
+        /// </summary>
+        /// <param name="Texto1">The texto1.</param>
+        /// <param name="Texto2">The texto2.</param>
+        /// <returns></returns>
         public String getfolderfile(String Texto1, String Texto2)
         {
             string filename = "";
@@ -51,6 +65,13 @@ namespace WpfNutWatch
             return filename;
         }
 
+        /// <summary>
+        /// Criar_diretorias the specified FTP.
+        /// </summary>
+        /// <param name="ftp">The FTP.</param>
+        /// <param name="username">The username.</param>
+        /// <param name="password">The password.</param>
+        /// <param name="nome_pasta">The nome_pasta.</param>
         public void criar_diretoria(String ftp, String username, String password, String nome_pasta)
         {
             //define os requesitos para se conectar com o servidor
@@ -74,6 +95,14 @@ namespace WpfNutWatch
             }
         }
 
+        /// <summary>
+        /// Doeses the FTP directory exist.
+        /// </summary>
+        /// <param name="ftp">The FTP.</param>
+        /// <param name="username">The username.</param>
+        /// <param name="password">The password.</param>
+        /// <param name="dirPath">The dir path.</param>
+        /// <returns></returns>
         public bool DoesFtpDirectoryExist(String ftp, String username, String password, String dirPath)
         {
             try
@@ -94,6 +123,13 @@ namespace WpfNutWatch
             }
         }
 
+        /// <summary>
+        /// Remove_diretorias the specified FTP.
+        /// </summary>
+        /// <param name="ftp">The FTP.</param>
+        /// <param name="username">The username.</param>
+        /// <param name="password">The password.</param>
+        /// <param name="nome_pasta">The nome_pasta.</param>
         public void remove_diretoria(String ftp, String username, String password, String nome_pasta)
         {
             //define os requesitos para se conectar com o servidor
@@ -115,6 +151,15 @@ namespace WpfNutWatch
             }
         }
 
+        /// <summary>
+        /// Uploads the specified arq.
+        /// </summary>
+        /// <param name="arq">The arq.</param>
+        /// <param name="ftp">The FTP.</param>
+        /// <param name="username">The username.</param>
+        /// <param name="password">The password.</param>
+        /// <param name="path">The path.</param>
+        /// <param name="nome_pasta">The nome_pasta.</param>
         public void upload(String arq, String ftp, String username, String password, String path, String nome_pasta)
         {
             try

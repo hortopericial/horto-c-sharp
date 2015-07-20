@@ -36,7 +36,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=6.9.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -69,6 +69,12 @@
     </Compile>
     <Compile Include="Deficiencia.Designer.cs">
       <DependentUpon>Deficiencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Diagnostico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diagnostico.Designer.cs">
+      <DependentUpon>Diagnostico.cs</DependentUpon>
     </Compile>
     <Compile Include="Especies.cs">
       <SubType>Form</SubType>
@@ -163,6 +169,9 @@
     <EmbeddedResource Include="Deficiencia.resx">
       <DependentUpon>Deficiencia.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Diagnostico.resx">
+      <DependentUpon>Diagnostico.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Distrito.resx">
       <DependentUpon>Distrito.cs</DependentUpon>
     </EmbeddedResource>
@@ -196,9 +205,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="default_image.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

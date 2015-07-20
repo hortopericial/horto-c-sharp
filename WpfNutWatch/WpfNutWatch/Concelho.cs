@@ -10,10 +10,16 @@ using MySql.Data.MySqlClient;
 
 namespace WpfNutWatch
 {
+    /// <summary>
+    /// Classe do formulario de preenchimento do Concelho
+    /// </summary>
     public partial class Concelho : Form
     {
         int id;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Concelho"/> class.
+        /// </summary>
         public Concelho()
         {
             InitializeComponent();
@@ -21,6 +27,9 @@ namespace WpfNutWatch
             fillgridConc();
         }
 
+        /// <summary>
+        /// Fillcomboes this instance.
+        /// </summary>
         public void fillcombo()
         {
             DBConnect NewConnection = new DBConnect();
@@ -47,6 +56,9 @@ namespace WpfNutWatch
             comboBox1.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Fillgrids the conc.
+        /// </summary>
         private void fillgridConc()
         {
             id = -1;
@@ -85,6 +97,11 @@ namespace WpfNutWatch
             comboBox1.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Handles the CellClick event of the dataGridView1 control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="DataGridViewCellEventArgs"/> instance containing the event data.</param>
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -119,6 +136,11 @@ namespace WpfNutWatch
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the buttonIns control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void buttonIns_Click(object sender, EventArgs e)
         {
             string selectedItem = comboBox1.Items[comboBox1.SelectedIndex].ToString();
@@ -187,6 +209,11 @@ namespace WpfNutWatch
             }
         }
 
+        /// <summary>
+        /// Handles the TextChanged event of the textBoxConc control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void textBoxConc_TextChanged(object sender, EventArgs e)
         {
             if (textBoxConc.TextLength == 0)
@@ -213,20 +240,36 @@ namespace WpfNutWatch
                 else
                 {
                     buttonIns.Visible = true;
+                    buttonCancel.Visible = true;
                 }
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the buttonCancel control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             fillgridConc();
         }
 
+        /// <summary>
+        /// Handles the Click event of the buttonSair control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void buttonSair_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        /// <summary>
+        /// Handles the Click event of the buttonDel control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void buttonDel_Click(object sender, EventArgs e)
         {
                try
@@ -263,6 +306,11 @@ namespace WpfNutWatch
             fillgridConc();
         }
 
+        /// <summary>
+        /// Handles the Click event of the buttonEdit control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void buttonEdit_Click(object sender, EventArgs e)
         {
             string selectedItem = comboBox1.Items[comboBox1.SelectedIndex].ToString();
@@ -282,7 +330,6 @@ namespace WpfNutWatch
                     count = count + 1;
                 }
                 DBConnect.db.Close();
-
 
                 if (count == 0)
                 {

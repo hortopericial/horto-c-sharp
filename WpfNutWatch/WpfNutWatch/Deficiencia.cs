@@ -125,6 +125,7 @@ namespace WpfNutWatch
                 else
                 {
                     buttonIns.Visible = true;
+                    buttonCancel.Visible = true;
                 }
             }
 

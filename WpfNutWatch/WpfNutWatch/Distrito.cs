@@ -11,21 +11,37 @@ using System.Collections;
 
 namespace WpfNutWatch
 {
+    /// <summary>
+    /// Classe para preencher o formulario distrito
+    /// </summary>
     public partial class Distrito : Form
     {
         int id;
-        
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Distrito"/> class.
+        /// </summary>
         public Distrito()
         {
             InitializeComponent();
             fillgridDis();
         }
 
+        /// <summary>
+        /// Handles the Click event of the buttonSair control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void buttonSair_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        /// <summary>
+        /// Handles the Click event of the buttonIns control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void buttonIns_Click(object sender, EventArgs e)
         {
             DBConnect NewcConnection = new DBConnect();
@@ -65,6 +81,9 @@ namespace WpfNutWatch
             fillgridDis();
         }
 
+        /// <summary>
+        /// Fillgrids the dis.
+        /// </summary>
         private void fillgridDis()
         {
             id = -1;
@@ -101,6 +120,11 @@ namespace WpfNutWatch
         
         }
 
+        /// <summary>
+        /// Handles the CellClick event of the dataGridView1 control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="DataGridViewCellEventArgs"/> instance containing the event data.</param>
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -136,6 +160,11 @@ namespace WpfNutWatch
 
         }
 
+        /// <summary>
+        /// Handles the Click event of the buttonEdit control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void buttonEdit_Click(object sender, EventArgs e)
         {
             try
@@ -184,6 +213,11 @@ namespace WpfNutWatch
             fillgridDis();
         }
 
+        /// <summary>
+        /// Handles the Click event of the buttonDel control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void buttonDel_Click(object sender, EventArgs e)
         {
 
@@ -268,6 +302,11 @@ namespace WpfNutWatch
             fillgridDis();
         }
 
+        /// <summary>
+        /// Handles the TextChanged event of the textBoxDis control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void textBoxDis_TextChanged(object sender, EventArgs e)
         {
 
@@ -295,11 +334,17 @@ namespace WpfNutWatch
                 else
                 {
                     buttonIns.Visible = true;
+                    buttonCancel.Visible = true;
                 }
             }
 
         }
 
+        /// <summary>
+        /// Handles the Click event of the buttonCancel control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             fillgridDis();

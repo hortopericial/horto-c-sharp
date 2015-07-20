@@ -10,22 +10,31 @@ using MySql.Data.MySqlClient;
 
 namespace WpfNutWatch
 {
+    /// <summary>
+    /// Classe para preencher o formulario Contactos
+    /// </summary>
     public partial class Contactos : Form
     {
         int id;
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Contactos"/> class.
+        /// </summary>
         public Contactos()
         {
             InitializeComponent();
             fillgridContact();
         }
 
+        /// <summary>
+        /// Fillgrids the contact.
+        /// </summary>
         private void fillgridContact()
         {
-            //id = -1;
-            //buttonDel.Visible = false;
-            //buttonEdit.Visible = false;
-            //buttonIns.Visible = false;
-            //buttonCancel.Visible = false;
+            id = -1;
+            buttonDel.Visible = false;
+            buttonEdit.Visible = false;
+            buttonIns.Visible = false;
+            buttonCancel.Visible = false;
             DBConnect NewcConnection = new DBConnect();
             NewcConnection.dbConnection();
             MySqlCommand querysql = new MySqlCommand("Select * From contactos", DBConnect.db);
@@ -54,13 +63,28 @@ namespace WpfNutWatch
                 MessageBox.Show(ex.Message);
             }
             DBConnect.db.Close();
+            textBoxNome.Clear();
+            textBoxMorada.Clear();
+            textBoxTel1.Clear();
+            textBoxTel2.Clear();
+            textBoxEmail.Clear();
         }
 
+        /// <summary>
+        /// Handles the Click event of the buttonClose control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void buttonClose_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        /// <summary>
+        /// Handles the Click event of the buttonIns control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void buttonIns_Click(object sender, EventArgs e)
         {
             //string selectedItem = comboBox1.Items[comboBox1.SelectedIndex].ToString();
@@ -140,6 +164,11 @@ namespace WpfNutWatch
             }
         }
 
+        /// <summary>
+        /// Handles the CellClick event of the dataGridView1 control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="DataGridViewCellEventArgs"/> instance containing the event data.</param>
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -202,6 +231,11 @@ namespace WpfNutWatch
 
         }
 
+        /// <summary>
+        /// Handles the Click event of the buttonDel control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void buttonDel_Click(object sender, EventArgs e)
         {
             try
@@ -238,8 +272,127 @@ namespace WpfNutWatch
             fillgridContact();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+
+        /// <summary>
+        /// Handles the Click event of the buttonCancel control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void buttonCancel_Click(object sender, EventArgs e)
         {
+            fillgridContact();
+        }
+
+        private void textBoxNome_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxNome.TextLength == 0)
+            {
+                buttonDel.Visible = false;
+                buttonEdit.Visible = false;
+                buttonIns.Visible = false;
+                if (id != -1)
+                {
+                    buttonCancel.Visible = true;
+                }
+            }
+
+            if (textBoxNome.TextLength > 0)
+            {
+
+                if (id != -1)
+                {
+                    buttonDel.Visible = true;
+                    buttonEdit.Visible = true;
+                    buttonCancel.Visible = true;
+                    buttonIns.Visible = false;
+                }
+                else
+                {
+                    buttonIns.Visible = true;
+                    buttonCancel.Visible = true;
+                }
+            }
+        }
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DBConnect NewcConnection = new DBConnect();
+                NewcConnection.dbConnection();
+                MySqlCommand verifica = new MySqlCommand("SELECT * FROM contactos WHERE contatonome LIKE @nome and contatomorada like @morada and contatocontato1 like @tel1 and contatocontato2 like @tel2 and contatoemail like @email  ", DBConnect.db);
+
+                verifica.Parameters.AddWithValue("@nome", this.textBoxNome.Text);
+                verifica.Parameters.AddWithValue("@morada", this.textBoxMorada.Text);
+                verifica.Parameters.AddWithValue("@tel1", this.textBoxTel1.Text);
+                verifica.Parameters.AddWithValue("@tel2", this.textBoxTel2.Text);
+                verifica.Parameters.AddWithValue("@email", this.textBoxEmail.Text);
+                MySqlDataReader read = verifica.ExecuteReader();
+                int count = 0;
+                while (read.Read())
+                {
+                    count = count + 1;
+                }
+                DBConnect.db.Close();
+                if (count == 0)
+                {
+                    DialogResult dlg = MessageBox.Show("Confirma a alteração no Contacto " + this.textBoxNome.Text + "?", "MessageBox Title", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dlg == DialogResult.Yes)
+                    {
+                        string aux_morada_final = null;
+                        string aux_tel1_final = null;
+                        string aux_tel2_final = null;
+                        string aux_email_final = null;
+                        string aux_morada = "Morada: ";
+                        string aux_tel = "Tel.: (+351) ";
+                        string aux_email = "Email: ";
+                        if (textBoxMorada.TextLength != 0)
+                        {
+                            aux_morada_final = aux_morada + textBoxMorada.Text;
+                        }
+                        if (textBoxTel1.TextLength != 0)
+                        {
+                            aux_tel1_final = aux_tel + textBoxTel1.Text;
+                        }
+                        if (textBoxTel2.TextLength != 0)
+                        {
+                            aux_tel2_final = aux_tel + textBoxTel2.Text;
+                        }
+                        if (textBoxEmail.TextLength != 0)
+                        {
+                            aux_email_final = aux_email + textBoxEmail.Text;
+                        }
+
+                        NewcConnection = new DBConnect();
+                        NewcConnection.dbConnection();
+                        MySqlCommand querysql = new MySqlCommand(" UPDATE Contactos set contatonome=@nome, contatomorada=@morada, contatocontato1=@tel1, contatocontato2=@tel2, contatoemail=@email  where Id =@Id_c", DBConnect.db);
+                        querysql.Parameters.AddWithValue("@Id_c", id.ToString());
+
+                        querysql.Parameters.AddWithValue("@nome", this.textBoxNome.Text);
+                        querysql.Parameters.AddWithValue("@morada", aux_morada_final);
+                        querysql.Parameters.AddWithValue("@tel1", aux_tel1_final);
+                        querysql.Parameters.AddWithValue("@tel2", aux_tel2_final);
+                        querysql.Parameters.AddWithValue("@email", aux_email_final);
+                       
+                        querysql.ExecuteNonQuery();
+                        DBConnect.db.Close();
+                        MessageBox.Show("Alteração Gravada!!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Alteração cancelada!!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Contacto já existe!!");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Ocorreu um erro!!");
+            }
+
             fillgridContact();
         } 
                

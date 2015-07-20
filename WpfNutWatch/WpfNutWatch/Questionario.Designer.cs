@@ -43,53 +43,60 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(81, 131);
+            this.buttonCancel.Location = new System.Drawing.Point(108, 161);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(186, 23);
+            this.buttonCancel.Size = new System.Drawing.Size(248, 28);
             this.buttonCancel.TabIndex = 19;
             this.buttonCancel.Text = "Cancelar Operação";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // textBoxPerg
             // 
-            this.textBoxPerg.Location = new System.Drawing.Point(81, 50);
+            this.textBoxPerg.Location = new System.Drawing.Point(108, 62);
+            this.textBoxPerg.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxPerg.MaxLength = 150;
             this.textBoxPerg.Name = "textBoxPerg";
-            this.textBoxPerg.Size = new System.Drawing.Size(231, 20);
+            this.textBoxPerg.Size = new System.Drawing.Size(307, 22);
             this.textBoxPerg.TabIndex = 18;
             this.textBoxPerg.TextChanged += new System.EventHandler(this.textBoxPerg_TextChanged);
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(82, 9);
+            this.comboBox1.Location = new System.Drawing.Point(109, 11);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(231, 21);
+            this.comboBox1.Size = new System.Drawing.Size(307, 24);
             this.comboBox1.TabIndex = 17;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 57);
+            this.label2.Location = new System.Drawing.Point(27, 70);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.Size = new System.Drawing.Size(70, 17);
             this.label2.TabIndex = 16;
             this.label2.Text = "Pergunta:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 17);
+            this.label1.Location = new System.Drawing.Point(11, 21);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 13);
+            this.label1.Size = new System.Drawing.Size(90, 17);
             this.label1.TabIndex = 15;
             this.label1.Text = "QuestionSet:";
             // 
             // buttonSair
             // 
-            this.buttonSair.Location = new System.Drawing.Point(141, 379);
+            this.buttonSair.Location = new System.Drawing.Point(188, 466);
+            this.buttonSair.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonSair.Name = "buttonSair";
-            this.buttonSair.Size = new System.Drawing.Size(75, 23);
+            this.buttonSair.Size = new System.Drawing.Size(100, 28);
             this.buttonSair.TabIndex = 14;
             this.buttonSair.Text = "Sair";
             this.buttonSair.UseVisualStyleBackColor = true;
@@ -97,27 +104,32 @@
             // 
             // buttonDel
             // 
-            this.buttonDel.Location = new System.Drawing.Point(252, 83);
+            this.buttonDel.Location = new System.Drawing.Point(336, 102);
+            this.buttonDel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDel.Name = "buttonDel";
-            this.buttonDel.Size = new System.Drawing.Size(75, 42);
+            this.buttonDel.Size = new System.Drawing.Size(100, 52);
             this.buttonDel.TabIndex = 13;
             this.buttonDel.Text = "Apagar";
             this.buttonDel.UseVisualStyleBackColor = true;
+            this.buttonDel.Click += new System.EventHandler(this.buttonDel_Click);
             // 
             // buttonEdit
             // 
-            this.buttonEdit.Location = new System.Drawing.Point(141, 83);
+            this.buttonEdit.Location = new System.Drawing.Point(188, 102);
+            this.buttonEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Size = new System.Drawing.Size(75, 42);
+            this.buttonEdit.Size = new System.Drawing.Size(100, 52);
             this.buttonEdit.TabIndex = 12;
             this.buttonEdit.Text = "Gravar Alterações";
             this.buttonEdit.UseVisualStyleBackColor = true;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
             // buttonIns
             // 
-            this.buttonIns.Location = new System.Drawing.Point(23, 83);
+            this.buttonIns.Location = new System.Drawing.Point(31, 102);
+            this.buttonIns.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonIns.Name = "buttonIns";
-            this.buttonIns.Size = new System.Drawing.Size(75, 42);
+            this.buttonIns.Size = new System.Drawing.Size(100, 52);
             this.buttonIns.TabIndex = 11;
             this.buttonIns.Text = "Inserir";
             this.buttonIns.UseVisualStyleBackColor = true;
@@ -128,18 +140,20 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(23, 160);
+            this.dataGridView1.Location = new System.Drawing.Point(31, 197);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(304, 204);
+            this.dataGridView1.Size = new System.Drawing.Size(405, 251);
             this.dataGridView1.TabIndex = 10;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Questionario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(350, 414);
+            this.ClientSize = new System.Drawing.Size(467, 510);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.textBoxPerg);
             this.Controls.Add(this.comboBox1);
@@ -151,6 +165,7 @@
             this.Controls.Add(this.buttonIns);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Questionario";

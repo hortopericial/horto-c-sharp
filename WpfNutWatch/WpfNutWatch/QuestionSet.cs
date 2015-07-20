@@ -10,15 +10,26 @@ using MySql.Data.MySqlClient;
 
 namespace WpfNutWatch
 {
+    /// <summary>
+    /// Classe para preenchimento do formulario QuestionSet
+    /// </summary>
     public partial class QuestionSet : Form
     {
         int id;
+        /// <summary>
+        /// Initializes a new instance of the <see cref="QuestionSet"/> class.
+        /// </summary>
         public QuestionSet()
         {
             InitializeComponent();
             fillgridQS();
         }
 
+        /// <summary>
+        /// Handles the TextChanged event of the textBox1 control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             if (textBoxQS.TextLength == 0)
@@ -50,6 +61,9 @@ namespace WpfNutWatch
             }
         }
 
+        /// <summary>
+        /// Fillgrids the qs.
+        /// </summary>
         private void fillgridQS()
         {
             id = -1;
@@ -87,16 +101,31 @@ namespace WpfNutWatch
             textBoxQS.Clear();
         }
 
+        /// <summary>
+        /// Handles the Click event of the buttonCancel control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             fillgridQS();
         }
 
+        /// <summary>
+        /// Handles the Click event of the buttonSair control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void buttonSair_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        /// <summary>
+        /// Handles the Click event of the buttonIns control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void buttonIns_Click(object sender, EventArgs e)
         {
             DBConnect NewcConnection = new DBConnect();
@@ -136,6 +165,11 @@ namespace WpfNutWatch
             fillgridQS();
         }
 
+        /// <summary>
+        /// Handles the CellClick event of the dataGridView1 control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="DataGridViewCellEventArgs"/> instance containing the event data.</param>
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -170,6 +204,11 @@ namespace WpfNutWatch
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the buttonEdit control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void buttonEdit_Click(object sender, EventArgs e)
         {
             try
@@ -218,6 +257,11 @@ namespace WpfNutWatch
             fillgridQS();
         }
 
+        /// <summary>
+        /// Handles the Click event of the buttonDel control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void buttonDel_Click(object sender, EventArgs e)
         {
             try

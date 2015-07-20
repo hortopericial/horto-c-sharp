@@ -29,8 +29,8 @@
                     <Button Content="Perguntas de Diagnostico" Height="23" HorizontalAlignment="Left" Margin="224,108,0,0" Name="buttonPerDia" VerticalAlignment="Top" Width="181" Click="buttonPerDia_Click" />
                     <Label Content="Gerir Distritos e " FontSize="14" Height="28" HorizontalAlignment="Left" Margin="40,163,0,0" Name="label4" VerticalAlignment="Top" Width="120" />
                     <Label Content="Concelhos" FontSize="14" Height="28" HorizontalAlignment="Left" Margin="56,184,0,0" Name="label5" VerticalAlignment="Top" Width="78" />
-                    <Button Content="Button" Height="23" HorizontalAlignment="Left" Margin="224,163,0,0" Name="button3" VerticalAlignment="Top" Width="181" />
-                    <Button Content="Button" Height="23" HorizontalAlignment="Left" Margin="606,149,0,0" Name="button4" VerticalAlignment="Top" Width="75" />
+                    <Button Content="Gerir Diagnostico" Height="23" HorizontalAlignment="Left" Margin="224,163,0,0" x:Name="buttonDia" VerticalAlignment="Top" Width="181" />
+                    <Button Content="Button" Height="23" HorizontalAlignment="Left" Margin="540,75,0,0" Name="button4" VerticalAlignment="Top" Width="181" />
                     <Button Content="Contatos" Height="23" HorizontalAlignment="Left" Margin="48,110,0,0" Name="button5" VerticalAlignment="Top" Width="100" Click="button5_Click" />
                 </Grid>
             </TabItem>

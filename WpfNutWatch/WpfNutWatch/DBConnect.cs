@@ -16,6 +16,9 @@ namespace WpfNutWatch
         private string uid;
         private string password;
 
+        /// <summary>
+        /// Databases the connection.
+        /// </summary>
         public void dbConnection()
         {            
             //server = "ltictrab.ddns.net";
@@ -34,10 +37,10 @@ namespace WpfNutWatch
             uid = "u963389833_horto";            
             password = "Jonas123";*/
 
-            server = "sql5.freemysqlhosting.net";
-            database = "sql575939";
-            uid = "sql575939";
-            password = "kG2%xD2!";
+            server = "localhost";
+            database = "sql483442";
+            uid = "root";
+            password = "";
             port = "3306";
             string connectionString;
 

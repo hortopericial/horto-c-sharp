@@ -113,6 +113,7 @@ namespace WpfNutWatch
                 else
                 {
                     buttonIns.Visible = true;
+                    buttonCancel.Visible = true;
                 }
             }
         }
@@ -129,7 +130,7 @@ namespace WpfNutWatch
                     id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_quest"].Value.ToString());
                     DBConnect NewcConnection = new DBConnect();
                     NewcConnection.dbConnection();
-                    MySqlCommand querysql = new MySqlCommand("Select id_quest, id_qs_fk, questao, name_qs From questionarios, questionset where id_qs_fk = id_qs and id_quest =" + id + "", DBConnect.db);
+                    MySqlCommand querysql = new MySqlCommand("Select id_quest, id_qs_fk, questao, id_qs, name_qs From questionarios, questionset where id_qs_fk = id_qs and id_quest =" + id + "", DBConnect.db);
                     querysql.ExecuteNonQuery();
                     DataTable dt = new DataTable();
                     MySqlDataAdapter dados = new MySqlDataAdapter(querysql);
@@ -137,7 +138,7 @@ namespace WpfNutWatch
                     foreach (DataRow dr in dt.Rows)
                     {
                         textBoxPerg.Text = dr["questao"].ToString();
-                        comboBox1.SelectedIndex = comboBox1.FindStringExact(dr["id_qs_fk"].ToString() + " " + "-" + " " + dr["name_qs"].ToString());
+                        comboBox1.SelectedIndex = comboBox1.FindStringExact(dr["id_qs"].ToString() + " " + "-" + " " + dr["name_qs"].ToString());
                     }
                 }
                 catch
@@ -217,6 +218,148 @@ namespace WpfNutWatch
             {
                 MessageBox.Show("Selecione um QuestionSet");
             }
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            fillgridPerg();
+        }
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            string selectedItem = comboBox1.Items[comboBox1.SelectedIndex].ToString();
+            string[] getid_dist = selectedItem.Split(' ');
+            if (comboBox1.SelectedIndex != 0)
+            {
+
+                DBConnect NewcConnection = new DBConnect();
+                NewcConnection.dbConnection();
+                MySqlCommand verifica = new MySqlCommand("SELECT * FROM questionarios WHERE questao LIKE @Questao", DBConnect.db);
+
+                verifica.Parameters.AddWithValue("@Questao", this.textBoxPerg.Text);
+                MySqlDataReader read = verifica.ExecuteReader();
+                int count = 0;
+                while (read.Read())
+                {
+                    count = count + 1;
+                }
+                DBConnect.db.Close();
+
+                if (count == 0)
+                {
+                    NewcConnection = new DBConnect();
+                    NewcConnection.dbConnection();                   
+                    MySqlCommand querysql = new MySqlCommand(" UPDATE questionarios set id_qs_fk = @QuestionSet, questao = @Questao where id_quest =@Id", DBConnect.db);
+                    querysql.Parameters.AddWithValue("@Id", id.ToString());
+                    querysql.Parameters.AddWithValue("@QuestionSet", getid_dist[0]);
+                    querysql.Parameters.AddWithValue("@Questao", this.textBoxPerg.Text);
+                    querysql.ExecuteNonQuery();
+                    MessageBox.Show("Sucesso!!");
+                }
+                else
+                {
+                    NewcConnection = new DBConnect();
+                    NewcConnection.dbConnection();
+                    MySqlCommand verifica1 = new MySqlCommand("SELECT * FROM questionarios WHERE id_qs_fk = @id_qs", DBConnect.db);
+                    verifica1.Parameters.AddWithValue("@id_qs", getid_dist[0]);
+                    MySqlDataReader read1 = verifica1.ExecuteReader();
+                    int count1 = 0;
+                    while (read1.Read())
+                    {
+                        count1 = count1 + 1;
+                    }
+
+                    DBConnect.db.Close();
+                    if (count1 == 0)
+                    {
+                        NewcConnection = new DBConnect();
+                        NewcConnection.dbConnection();
+                        MySqlCommand querysql = new MySqlCommand(" UPDATE questionarios set id_qs_fk = @QuestionSet, questao = @Questao where id_quest =@Id", DBConnect.db);
+                        querysql.Parameters.AddWithValue("@Id", id.ToString());
+                        querysql.Parameters.AddWithValue("@QuestionSet", getid_dist[0]);
+                        querysql.Parameters.AddWithValue("@Questao", this.textBoxPerg.Text);
+                        querysql.ExecuteNonQuery();
+                        MessageBox.Show("Sucesso!!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Questão já existe!!");
+                    }
+                }
+                DBConnect.db.Close();
+                fillgridPerg();
+            }
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                try
+                {
+                    buttonDel.Visible = true;
+                    buttonEdit.Visible = true;
+                    id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_quest"].Value.ToString());
+                    DBConnect NewcConnection = new DBConnect();
+                    NewcConnection.dbConnection();
+                    MySqlCommand querysql = new MySqlCommand("Select id_quest, questao, id_qs_fk, id_qs, name_qs From questionarios, questionset where id_qs = id_qs_fk and id_quest =" + id + "", DBConnect.db);
+                    querysql.ExecuteNonQuery();
+                    DataTable dt = new DataTable();
+                    MySqlDataAdapter dados = new MySqlDataAdapter(querysql);
+                    dados.Fill(dt);
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        textBoxPerg.Text = dr["questao"].ToString();
+                        comboBox1.SelectedIndex = comboBox1.FindStringExact(dr["id_qs_fk"].ToString() + " " + "-" + " " + dr["name_qs"].ToString());
+                    }
+                }
+                catch
+                {
+                    buttonDel.Visible = false;
+                    buttonEdit.Visible = false;
+                    buttonIns.Visible = false;
+                    textBoxPerg.Clear();
+                    id = -1;
+                    MessageBox.Show("Selecione uma celula valida");
+                }
+            }
+        }
+
+        private void buttonDel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dlg = MessageBox.Show("Quer apagar a questão: " + this.textBoxPerg.Text + "?", "MessageBox Title", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dlg == DialogResult.Yes)
+                {
+                    DialogResult dlg2 = MessageBox.Show("Tem a certeza que quer apagar a questão: " + this.textBoxPerg.Text + " ?", "MessageBox Title", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dlg2 == DialogResult.Yes)
+                    {
+                        DBConnect NewcConnection = new DBConnect();
+                        NewcConnection.dbConnection();
+                        MySqlCommand querysql = new MySqlCommand(" Delete from questionarios where id_quest =@Id", DBConnect.db);
+                        querysql.Parameters.AddWithValue("@Id", id.ToString());
+                        querysql.ExecuteNonQuery();
+                        MessageBox.Show("Apagado com sucesso!!");
+                        DBConnect.db.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Operação anulada!!!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Operação anulada!!!");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Ocorreu um erro!!");
+            }
+
+            fillgridPerg();
         }
     }
 }

@@ -50,66 +50,74 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(72, 20);
+            this.label1.Location = new System.Drawing.Point(96, 25);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 13);
+            this.label1.Size = new System.Drawing.Size(62, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Espécie:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(72, 67);
+            this.label2.Location = new System.Drawing.Point(96, 82);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.Size = new System.Drawing.Size(76, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Dificiencia:";
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(183, 107);
+            this.textBox2.Location = new System.Drawing.Point(244, 132);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(156, 20);
+            this.textBox2.Size = new System.Drawing.Size(313, 22);
             this.textBox2.TabIndex = 3;
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 252);
+            this.dataGridView1.Location = new System.Drawing.Point(16, 310);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(422, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(563, 185);
             this.dataGridView1.TabIndex = 4;
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(183, 17);
+            this.comboBox1.Location = new System.Drawing.Point(244, 21);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(236, 21);
+            this.comboBox1.Size = new System.Drawing.Size(313, 24);
             this.comboBox1.TabIndex = 6;
             // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(183, 59);
+            this.comboBox2.Location = new System.Drawing.Point(244, 73);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(236, 21);
+            this.comboBox2.Size = new System.Drawing.Size(313, 24);
             this.comboBox2.TabIndex = 7;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(33, 104);
+            this.button1.Location = new System.Drawing.Point(44, 128);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(132, 23);
+            this.button1.Size = new System.Drawing.Size(176, 28);
             this.button1.TabIndex = 10;
             this.button1.Text = "Selecionar Imagem";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(641, 15);
+            this.button2.Location = new System.Drawing.Point(855, 18);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(113, 23);
+            this.button2.Size = new System.Drawing.Size(151, 28);
             this.button2.TabIndex = 11;
             this.button2.Text = "Nova Espécie";
             this.button2.UseVisualStyleBackColor = true;
@@ -117,9 +125,10 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(641, 89);
+            this.button3.Location = new System.Drawing.Point(855, 110);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(113, 23);
+            this.button3.Size = new System.Drawing.Size(151, 28);
             this.button3.TabIndex = 12;
             this.button3.Text = "Nova Dificiencia";
             this.button3.UseVisualStyleBackColor = true;
@@ -127,53 +136,59 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(512, 252);
+            this.pictureBox1.Location = new System.Drawing.Point(683, 310);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(242, 150);
+            this.pictureBox1.Size = new System.Drawing.Size(323, 185);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(33, 159);
+            this.button4.Location = new System.Drawing.Point(44, 196);
+            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.Size = new System.Drawing.Size(100, 28);
             this.button4.TabIndex = 13;
-            this.button4.Text = "button4";
+            this.button4.Text = "Inserir";
             this.button4.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(127, 158);
+            this.button5.Location = new System.Drawing.Point(169, 194);
+            this.button5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.Size = new System.Drawing.Size(100, 28);
             this.button5.TabIndex = 14;
             this.button5.Text = "button5";
             this.button5.UseVisualStyleBackColor = true;
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(230, 158);
+            this.button6.Location = new System.Drawing.Point(307, 194);
+            this.button6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.Size = new System.Drawing.Size(100, 28);
             this.button6.TabIndex = 15;
-            this.button6.Text = "button6";
+            this.button6.Text = "Apagar";
             this.button6.UseVisualStyleBackColor = true;
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(127, 213);
+            this.button7.Location = new System.Drawing.Point(169, 262);
+            this.button7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.Size = new System.Drawing.Size(100, 28);
             this.button7.TabIndex = 16;
-            this.button7.Text = "button7";
+            this.button7.Text = "Cancelar";
             this.button7.UseVisualStyleBackColor = true;
             // 
             // buttonSair
             // 
-            this.buttonSair.Location = new System.Drawing.Point(615, 411);
+            this.buttonSair.Location = new System.Drawing.Point(820, 506);
+            this.buttonSair.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonSair.Name = "buttonSair";
-            this.buttonSair.Size = new System.Drawing.Size(139, 23);
+            this.buttonSair.Size = new System.Drawing.Size(185, 28);
             this.buttonSair.TabIndex = 17;
             this.buttonSair.Text = "Sair";
             this.buttonSair.UseVisualStyleBackColor = true;
@@ -181,9 +196,9 @@
             // 
             // Especie_Defeciencia
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(780, 446);
+            this.ClientSize = new System.Drawing.Size(1040, 549);
             this.Controls.Add(this.buttonSair);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
@@ -200,6 +215,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Especie_Defeciencia";
